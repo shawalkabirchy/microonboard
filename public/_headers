@@ -1,0 +1,10 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+/embed/1.0.0/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/examples/strict/*
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'nonce-microonboard-test'; style-src-attr 'none'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'

@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "number",
+      "const": 1
+    },
+    "tourId": {
+      "type": "string",
+      "format": "uuid",
+      "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "version": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "pagePath": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048,
+      "pattern": "^\\/(?!\\/)[^?#\\\\\\s]*$"
+    },
+    "steps": {
+      "minItems": 1,
+      "maxItems": 10,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "selector": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "body": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "placement": {
+            "default": "auto",
+            "type": "string",
+            "enum": [
+              "auto",
+              "top",
+              "right",
+              "bottom",
+              "left"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "selector",
+          "title",
+          "body",
+          "placement"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "theme": {
+      "type": "object",
+      "properties": {
+        "primaryColor": {
+          "type": "string",
+          "pattern": "^#[\\da-fA-F]{6}$"
+        }
+      },
+      "required": [
+        "primaryColor"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "tourId",
+    "title",
+    "version",
+    "pagePath",
+    "steps",
+    "theme"
+  ],
+  "additionalProperties": false,
+  "title": "MicroOnboard tour configuration",
+  "description": "Schema v1. Runtime additionally validates selector syntax, unique step IDs, and the UTF-8 byte limit."
+}

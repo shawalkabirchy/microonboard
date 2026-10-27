@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "tourId": "71185b34-5598-4f51-824d-77b098b55a60",
+  "title": "Welcome to Acme",
+  "version": 1,
+  "pagePath": "/demo/",
+  "theme": {
+    "primaryColor": "#7055E8"
+  },
+  "steps": [
+    {
+      "id": "7c06689c-e8db-4e3e-bc68-567bf98fac11",
+      "selector": "[data-tour-id=\"new-project\"]",
+      "title": "Make room for your next idea",
+      "body": "Create a project to keep your team and its work together.",
+      "placement": "bottom"
+    },
+    {
+      "id": "6c58507e-c62f-46e1-a9a5-d359e1a8d822",
+      "selector": "[data-tour-id=\"tasks\"]",
+      "title": "Find your focus",
+      "body": "See what needs your attention. Your team's next steps live here.",
+      "placement": "right"
+    },
+    {
+      "id": "c57ca7a0-80c8-4c89-a5e7-880aeaf91f33",
+      "selector": "[data-tour-id=\"invite\"]",
+      "title": "Better, together",
+      "body": "Bring your teammates into the workspace when you are ready to collaborate.",
+      "placement": "bottom"
+    },
+    {
+      "id": "cadc8e63-8e9c-4dcb-9677-c87a792a0344",
+      "selector": "[data-tour-id=\"settings\"]",
+      "title": "Make yourself at home",
+      "body": "Give your workspace a name and make it feel like yours. You're ready to go.",
+      "placement": "right"
+    }
+  ]
+}

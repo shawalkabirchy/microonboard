@@ -1,0 +1,10 @@
+{
+  "runtimeVersion": "1.0.0",
+  "bytes": 53980,
+  "gzipBytes": 19773,
+  "brotliBytes": 17679,
+  "dependencies": [
+    "zod",
+    "@floating-ui/dom"
+  ]
+}

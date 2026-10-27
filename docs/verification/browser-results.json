@@ -1,0 +1,786 @@
+{
+  "runs": [
+    {
+      "label": "Initial complete 88-case matrix",
+      "stats": {
+        "startTime": "2026-10-27T12:43:12.589Z",
+        "duration": 967346.1000000001,
+        "expected": 86,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "label": "First final targeted verification: 18/20 passed; WebKit touch exposed horizontal overflow",
+      "stats": {
+        "startTime": "2026-10-27T13:08:39.948Z",
+        "duration": 188880.31,
+        "expected": 18,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "label": "Final runtime, storage, keyboard and touch regression: 52/52 passed",
+      "command": "npx playwright test -g 'P09-|blocked IndexedDB|unsaved navigation'",
+      "stats": {
+        "startTime": "2026-10-27T13:16:18.377Z",
+        "duration": 316719.61199999996,
+        "expected": 52,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  ],
+  "checks": [
+    {
+      "file": "app.spec.ts",
+      "title": "the phone landing preview does not scroll its parent page",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 8630,
+      "startedAt": "2026-10-27T12:43:15.068Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "landing identity, real app preview, no console errors and working primary action",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 4797,
+      "startedAt": "2026-10-27T12:43:28.142Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "builder saves locally, rejects ambiguous manual targets and preserves the last valid draft",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 9534,
+      "startedAt": "2026-10-27T12:43:33.122Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "builder picker does not open the selected host control and preserves step IDs during reordering",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 8291,
+      "startedAt": "2026-10-27T12:43:42.791Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "export freezes a version and rejects changed content until the version is increased",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 8836,
+      "startedAt": "2026-10-27T12:43:51.171Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "valid backup replacement requires confirmation; invalid imports do not touch saved work or upload content",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 9193,
+      "startedAt": "2026-10-27T12:44:00.307Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "two real tabs cannot overwrite one another with stale saves",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 7226,
+      "startedAt": "2026-10-27T12:44:09.568Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "blocked IndexedDB and quota failure keep pending work and offer recovery",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 2639,
+      "startedAt": "2026-10-27T13:16:21.524Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "quota failure preserves a committed draft",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 8053,
+      "startedAt": "2026-10-27T12:44:24.452Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "unsaved navigation is explicit and sample workspace controls work",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 8301,
+      "startedAt": "2026-10-27T13:16:24.603Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "browser Back protects unsaved text with the native unload dialog",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 10015,
+      "startedAt": "2026-10-27T12:44:41.586Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "responsive pages and WCAG automated checks",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 26621,
+      "startedAt": "2026-10-27T12:44:51.647Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "the phone landing preview does not scroll its parent page",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 23589,
+      "startedAt": "2026-10-27T12:45:49.046Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "landing identity, real app preview, no console errors and working primary action",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 23885,
+      "startedAt": "2026-10-27T12:46:15.013Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "builder saves locally, rejects ambiguous manual targets and preserves the last valid draft",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 25150,
+      "startedAt": "2026-10-27T12:46:39.110Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "builder picker does not open the selected host control and preserves step IDs during reordering",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 15672,
+      "startedAt": "2026-10-27T12:47:04.587Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "export freezes a version and rejects changed content until the version is increased",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 14517,
+      "startedAt": "2026-10-27T12:47:20.692Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "valid backup replacement requires confirmation; invalid imports do not touch saved work or upload content",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 36119,
+      "startedAt": "2026-10-27T12:47:35.489Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "two real tabs cannot overwrite one another with stale saves",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 25857,
+      "startedAt": "2026-10-27T12:48:11.764Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "blocked IndexedDB and quota failure keep pending work and offer recovery",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 19888,
+      "startedAt": "2026-10-27T13:17:02.599Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "quota failure preserves a committed draft",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 33874,
+      "startedAt": "2026-10-27T12:48:55.867Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "unsaved navigation is explicit and sample workspace controls work",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 21073,
+      "startedAt": "2026-10-27T13:17:24.332Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "browser Back protects unsaved text with the native unload dialog",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 20076,
+      "startedAt": "2026-10-27T12:49:55.988Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "responsive pages and WCAG automated checks",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 66055,
+      "startedAt": "2026-10-27T12:50:16.233Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "the phone landing preview does not scroll its parent page",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 1993,
+      "startedAt": "2026-10-27T12:52:33.656Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "landing identity, real app preview, no console errors and working primary action",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 8077,
+      "startedAt": "2026-10-27T12:52:36.049Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "builder saves locally, rejects ambiguous manual targets and preserves the last valid draft",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 16409,
+      "startedAt": "2026-10-27T12:52:44.304Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "builder picker does not open the selected host control and preserves step IDs during reordering",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 10830,
+      "startedAt": "2026-10-27T12:53:00.911Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "export freezes a version and rejects changed content until the version is increased",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 9316,
+      "startedAt": "2026-10-27T12:53:11.909Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "valid backup replacement requires confirmation; invalid imports do not touch saved work or upload content",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 17033,
+      "startedAt": "2026-10-27T12:53:22.075Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "two real tabs cannot overwrite one another with stale saves",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 16784,
+      "startedAt": "2026-10-27T12:53:39.453Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "blocked IndexedDB and quota failure keep pending work and offer recovery",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 4822,
+      "startedAt": "2026-10-27T13:19:14.720Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "quota failure preserves a committed draft",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 5030,
+      "startedAt": "2026-10-27T12:54:06.314Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "unsaved navigation is explicit and sample workspace controls work",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 11613,
+      "startedAt": "2026-10-27T13:19:19.878Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "browser Back protects unsaved text with the native unload dialog",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 2892,
+      "startedAt": "2026-10-27T12:54:22.451Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "responsive pages and WCAG automated checks",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 52945,
+      "startedAt": "2026-10-27T12:54:25.511Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "the phone landing preview does not scroll its parent page",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 1122,
+      "startedAt": "2026-10-27T12:56:10.945Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "landing identity, real app preview, no console errors and working primary action",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 1942,
+      "startedAt": "2026-10-27T12:56:12.699Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "builder saves locally, rejects ambiguous manual targets and preserves the last valid draft",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 8836,
+      "startedAt": "2026-10-27T12:56:14.682Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "builder picker does not open the selected host control and preserves step IDs during reordering",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 10696,
+      "startedAt": "2026-10-27T12:56:23.898Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "export freezes a version and rejects changed content until the version is increased",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 7364,
+      "startedAt": "2026-10-27T12:56:35.003Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "valid backup replacement requires confirmation; invalid imports do not touch saved work or upload content",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 4617,
+      "startedAt": "2026-10-27T12:56:42.568Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "two real tabs cannot overwrite one another with stale saves",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 9232,
+      "startedAt": "2026-10-27T12:56:47.236Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "blocked IndexedDB and quota failure keep pending work and offer recovery",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 2985,
+      "startedAt": "2026-10-27T13:20:36.261Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "quota failure preserves a committed draft",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 8683,
+      "startedAt": "2026-10-27T12:57:02.827Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "unsaved navigation is explicit and sample workspace controls work",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 6454,
+      "startedAt": "2026-10-27T13:20:40.187Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "browser Back protects unsaved text with the native unload dialog",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 11503,
+      "startedAt": "2026-10-27T12:57:25.035Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "responsive pages and WCAG automated checks",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 43121,
+      "startedAt": "2026-10-27T12:57:36.587Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A1 picker falls back to a stable unique ID when a tour attribute is ambiguous",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 1113,
+      "startedAt": "2026-10-27T13:16:33.127Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A2/A4 finish, replay, versioned completion and reset",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 1994,
+      "startedAt": "2026-10-27T13:16:34.281Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A2/A6 keyboard focus, back, stop/restart, no duplicate roots and final destroy",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 1846,
+      "startedAt": "2026-10-27T13:16:36.310Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A3 waits for a delayed target, rejects wrong pages and invalid selectors",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 1347,
+      "startedAt": "2026-10-27T13:16:38.190Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A3 skips a missing middle step without completion, and can recover by going back",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 6148,
+      "startedAt": "2026-10-27T13:16:39.574Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A3 last, hidden and ambiguous targets never create completion",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 5308,
+      "startedAt": "2026-10-27T13:16:45.837Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A5 literal text, no runtime network, private fields unchanged through picking",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 1398,
+      "startedAt": "2026-10-27T13:16:51.184Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A7 strict nonce policy works without violations or inline styles",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 1372,
+      "startedAt": "2026-10-27T13:16:52.624Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A7 completion survives storage failure only for the page session",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 1824,
+      "startedAt": "2026-10-27T13:16:54.032Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A6 tooltip remains within the phone viewport after resize and scroll",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 797,
+      "startedAt": "2026-10-27T13:16:56.004Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A1 picker falls back to a stable unique ID when a tour attribute is ambiguous",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 4246,
+      "startedAt": "2026-10-27T13:17:45.825Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A2/A4 finish, replay, versioned completion and reset",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 6277,
+      "startedAt": "2026-10-27T13:17:50.187Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A2/A6 keyboard focus, back, stop/restart, no duplicate roots and final destroy",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 15304,
+      "startedAt": "2026-10-27T13:17:56.819Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A3 waits for a delayed target, rejects wrong pages and invalid selectors",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 4704,
+      "startedAt": "2026-10-27T13:18:12.179Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A3 skips a missing middle step without completion, and can recover by going back",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 9107,
+      "startedAt": "2026-10-27T13:18:16.989Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A3 last, hidden and ambiguous targets never create completion",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 10911,
+      "startedAt": "2026-10-27T13:18:26.136Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A5 literal text, no runtime network, private fields unchanged through picking",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 6954,
+      "startedAt": "2026-10-27T13:18:37.233Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A7 strict nonce policy works without violations or inline styles",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 7400,
+      "startedAt": "2026-10-27T13:18:44.408Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A7 completion survives storage failure only for the page session",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 6555,
+      "startedAt": "2026-10-27T13:18:51.957Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A6 tooltip remains within the phone viewport after resize and scroll",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 4753,
+      "startedAt": "2026-10-27T13:18:58.638Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A1 picker falls back to a stable unique ID when a tour attribute is ambiguous",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 3344,
+      "startedAt": "2026-10-27T13:19:31.777Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A2/A4 finish, replay, versioned completion and reset",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 5535,
+      "startedAt": "2026-10-27T13:19:35.177Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A2/A6 keyboard focus, back, stop/restart, no duplicate roots and final destroy",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 6138,
+      "startedAt": "2026-10-27T13:19:40.779Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A3 waits for a delayed target, rejects wrong pages and invalid selectors",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 2628,
+      "startedAt": "2026-10-27T13:19:47.080Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A3 skips a missing middle step without completion, and can recover by going back",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 10085,
+      "startedAt": "2026-10-27T13:19:49.889Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A3 last, hidden and ambiguous targets never create completion",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 11569,
+      "startedAt": "2026-10-27T13:20:00.306Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A5 literal text, no runtime network, private fields unchanged through picking",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 6949,
+      "startedAt": "2026-10-27T13:20:12.052Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A7 strict nonce policy works without violations or inline styles",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 4015,
+      "startedAt": "2026-10-27T13:20:19.104Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A7 completion survives storage failure only for the page session",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 5001,
+      "startedAt": "2026-10-27T13:20:23.266Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A6 tooltip remains within the phone viewport after resize and scroll",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 2321,
+      "startedAt": "2026-10-27T13:20:28.310Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A1 picker falls back to a stable unique ID when a tour attribute is ambiguous",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 1918,
+      "startedAt": "2026-10-27T13:20:46.817Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A2/A4 finish, replay, versioned completion and reset",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 2549,
+      "startedAt": "2026-10-27T13:20:48.776Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A2/A6 keyboard focus, back, stop/restart, no duplicate roots and final destroy",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 4023,
+      "startedAt": "2026-10-27T13:20:51.377Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A3 waits for a delayed target, rejects wrong pages and invalid selectors",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 2306,
+      "startedAt": "2026-10-27T13:20:55.524Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A3 skips a missing middle step without completion, and can recover by going back",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 8117,
+      "startedAt": "2026-10-27T13:20:58.030Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A3 last, hidden and ambiguous targets never create completion",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 7885,
+      "startedAt": "2026-10-27T13:21:06.210Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A5 literal text, no runtime network, private fields unchanged through picking",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 6626,
+      "startedAt": "2026-10-27T13:21:14.240Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A7 strict nonce policy works without violations or inline styles",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 3793,
+      "startedAt": "2026-10-27T13:21:21.127Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A7 completion survives storage failure only for the page session",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 3517,
+      "startedAt": "2026-10-27T13:21:25.150Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A6 tooltip remains within the phone viewport after resize and scroll",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 1893,
+      "startedAt": "2026-10-27T13:21:28.813Z"
+    },
+    {
+      "file": "touch.spec.ts",
+      "title": "P09-A2 touch controls and reduced-motion context complete a real tour",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 2554,
+      "startedAt": "2026-10-27T13:16:56.848Z"
+    },
+    {
+      "file": "touch.spec.ts",
+      "title": "P09-A2 touch controls and reduced-motion context complete a real tour",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 7256,
+      "startedAt": "2026-10-27T13:19:03.450Z"
+    },
+    {
+      "file": "touch.spec.ts",
+      "title": "P09-A2 touch controls and reduced-motion context complete a real tour",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 3494,
+      "startedAt": "2026-10-27T13:20:30.827Z"
+    },
+    {
+      "file": "touch.spec.ts",
+      "title": "P09-A2 touch controls and reduced-motion context complete a real tour",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 3095,
+      "startedAt": "2026-10-27T13:21:30.883Z"
+    }
+  ],
+  "summary": {
+    "uniqueChecks": 92,
+    "passed": 92,
+    "byProject": {
+      "chromium": 23,
+      "firefox": 23,
+      "webkit": 23,
+      "edge": 23
+    }
+  }
+}
