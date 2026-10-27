@@ -3,6 +3,53 @@ import AxeBuilder from "@axe-core/playwright";
 import { sampleTour } from "../../src/core/sample";
 import { newDraft, exportBackup } from "../../src/core/drafts";
 
+test("editor queues picking and validation until the preview is hydrated", async ({
+  page,
+}) => {
+  let release!: () => void;
+  const hydration = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  await page.route(
+    "**/_next/static/chunks/app/preview/page-*.js",
+    async (route) => {
+      await hydration;
+      await route.continue();
+    },
+  );
+  try {
+    await page.goto("/builder/", { waitUntil: "commit" });
+    await page.getByRole("tab", { name: "Install", exact: true }).click();
+    await expect(
+      page.getByRole("heading", {
+        name: "A warm welcome, wherever you build.",
+      }),
+    ).toBeVisible();
+    await page.getByRole("tab", { name: "Edit tour", exact: true }).click();
+    await page
+      .getByLabel("Target selector", { exact: true })
+      .fill("[data-tour-id='new-project']");
+    await page
+      .getByRole("button", { name: "Pick target element", exact: true })
+      .click();
+    await page.getByRole("button", { name: "Save tour", exact: true }).click();
+    release();
+    const frame = page.frameLocator("iframe");
+    await expect(frame.getByRole("dialog")).toBeVisible();
+    await expect(
+      page.getByText("Tour saved on this device.", { exact: true }),
+    ).toBeVisible();
+    await frame
+      .getByRole("button", { name: "Invite teammate", exact: true })
+      .click();
+    await expect(
+      page.getByLabel("Target selector", { exact: true }),
+    ).toHaveValue('[data-tour-id="invite"]');
+  } finally {
+    release();
+  }
+});
+
 test("landing preview starts when the child is ready before parent hydration", async ({
   page,
   browserName,

@@ -45,6 +45,18 @@
         "unexpected": 0,
         "flaky": 0
       }
+    },
+    {
+      "label": "Readiness queue, both hydration orders, picker, save and landing: 19 passed, one artificial Firefox ordering fixture skipped",
+      "command": "npx playwright test -g 'editor queues|child is ready|landing identity|builder saves|builder picker'",
+      "stats": {
+        "startTime": "2026-10-27T14:12:16.680Z",
+        "duration": 41179.193,
+        "expected": 19,
+        "skipped": 1,
+        "unexpected": 0,
+        "flaky": 0
+      }
     }
   ],
   "checks": [
@@ -61,24 +73,24 @@
       "title": "landing identity, real app preview, no console errors and working primary action",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 4228,
-      "startedAt": "2026-10-27T13:49:12.671Z"
+      "durationMs": 640,
+      "startedAt": "2026-10-27T14:12:20.441Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder saves locally, rejects ambiguous manual targets and preserves the last valid draft",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 8039,
-      "startedAt": "2026-10-27T13:49:16.963Z"
+      "durationMs": 1055,
+      "startedAt": "2026-10-27T14:12:21.097Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder picker does not open the selected host control and preserves step IDs during reordering",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 7810,
-      "startedAt": "2026-10-27T13:49:25.114Z"
+      "durationMs": 1455,
+      "startedAt": "2026-10-27T14:12:22.176Z"
     },
     {
       "file": "app.spec.ts",
@@ -157,24 +169,24 @@
       "title": "landing identity, real app preview, no console errors and working primary action",
       "project": "firefox",
       "status": "passed",
-      "durationMs": 34625,
-      "startedAt": "2026-10-27T13:51:08.974Z"
+      "durationMs": 1733,
+      "startedAt": "2026-10-27T14:12:29.399Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder saves locally, rejects ambiguous manual targets and preserves the last valid draft",
       "project": "firefox",
       "status": "passed",
-      "durationMs": 17301,
-      "startedAt": "2026-10-27T13:51:44.108Z"
+      "durationMs": 2506,
+      "startedAt": "2026-10-27T14:12:31.152Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder picker does not open the selected host control and preserves step IDs during reordering",
       "project": "firefox",
       "status": "passed",
-      "durationMs": 10650,
-      "startedAt": "2026-10-27T13:52:01.576Z"
+      "durationMs": 2171,
+      "startedAt": "2026-10-27T14:12:33.684Z"
     },
     {
       "file": "app.spec.ts",
@@ -253,24 +265,24 @@
       "title": "landing identity, real app preview, no console errors and working primary action",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 5381,
-      "startedAt": "2026-10-27T13:54:36.366Z"
+      "durationMs": 1977,
+      "startedAt": "2026-10-27T14:12:41.130Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder saves locally, rejects ambiguous manual targets and preserves the last valid draft",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 8055,
-      "startedAt": "2026-10-27T13:54:41.789Z"
+      "durationMs": 2972,
+      "startedAt": "2026-10-27T14:12:43.129Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder picker does not open the selected host control and preserves step IDs during reordering",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 7270,
-      "startedAt": "2026-10-27T13:54:49.976Z"
+      "durationMs": 3613,
+      "startedAt": "2026-10-27T14:12:46.120Z"
     },
     {
       "file": "app.spec.ts",
@@ -349,24 +361,24 @@
       "title": "landing identity, real app preview, no console errors and working primary action",
       "project": "edge",
       "status": "passed",
-      "durationMs": 4076,
-      "startedAt": "2026-10-27T13:56:49.977Z"
+      "durationMs": 919,
+      "startedAt": "2026-10-27T14:12:52.866Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder saves locally, rejects ambiguous manual targets and preserves the last valid draft",
       "project": "edge",
       "status": "passed",
-      "durationMs": 6916,
-      "startedAt": "2026-10-27T13:56:54.099Z"
+      "durationMs": 1504,
+      "startedAt": "2026-10-27T14:12:53.804Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder picker does not open the selected host control and preserves step IDs during reordering",
       "project": "edge",
       "status": "passed",
-      "durationMs": 6884,
-      "startedAt": "2026-10-27T13:57:01.058Z"
+      "durationMs": 1526,
+      "startedAt": "2026-10-27T14:12:55.329Z"
     },
     {
       "file": "app.spec.ts",
@@ -789,43 +801,75 @@
       "title": "landing preview starts when the child is ready before parent hydration",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 2236,
-      "startedAt": "2026-10-27T13:49:08.468Z"
+      "durationMs": 733,
+      "startedAt": "2026-10-27T14:12:19.699Z"
     },
     {
       "file": "app.spec.ts",
       "title": "landing preview starts when the child is ready before parent hydration",
       "project": "firefox",
       "status": "skipped",
-      "durationMs": 8151,
-      "startedAt": "2026-10-27T13:50:48.011Z"
+      "durationMs": 476,
+      "startedAt": "2026-10-27T14:12:28.903Z"
     },
     {
       "file": "app.spec.ts",
       "title": "landing preview starts when the child is ready before parent hydration",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 4265,
-      "startedAt": "2026-10-27T13:54:29.721Z"
+      "durationMs": 1398,
+      "startedAt": "2026-10-27T14:12:39.706Z"
     },
     {
       "file": "app.spec.ts",
       "title": "landing preview starts when the child is ready before parent hydration",
       "project": "edge",
       "status": "passed",
-      "durationMs": 3261,
-      "startedAt": "2026-10-27T13:56:41.986Z"
+      "durationMs": 805,
+      "startedAt": "2026-10-27T14:12:52.051Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "editor queues picking and validation until the preview is hydrated",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 1195,
+      "startedAt": "2026-10-27T14:12:18.383Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "editor queues picking and validation until the preview is hydrated",
+      "project": "firefox",
+      "status": "passed",
+      "durationMs": 3753,
+      "startedAt": "2026-10-27T14:12:24.212Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "editor queues picking and validation until the preview is hydrated",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 2463,
+      "startedAt": "2026-10-27T14:12:37.024Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "editor queues picking and validation until the preview is hydrated",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 1224,
+      "startedAt": "2026-10-27T14:12:50.319Z"
     }
   ],
   "summary": {
-    "uniqueChecks": 96,
-    "passed": 95,
+    "uniqueChecks": 100,
+    "passed": 99,
     "skipped": 1,
     "byProject": {
-      "chromium": 24,
-      "firefox": 23,
-      "webkit": 24,
-      "edge": 24
+      "chromium": 25,
+      "firefox": 24,
+      "webkit": 25,
+      "edge": 25
     }
   }
 }

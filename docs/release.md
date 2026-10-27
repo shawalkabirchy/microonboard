@@ -25,7 +25,7 @@ Live browser acceptance passed **23/23 Chromium cases** on the actual production
 
 Documentation and screenshot refinements may follow the tested application commit. The versioned runtime remains unchanged. Until the Git account connection is repaired, invoke the documented Git-branch build explicitly after a checked push. The repository's latest Actions run and Pages deployment identify the currently published commit.
 
-The follow-up release fixes an intermittent landing-preview handshake race found by the second CI run. The parent requests readiness again after installing its listener. This changes the application preview, with no change to the independent runtime, configuration, persisted drafts or the published embed hash. The latest [validation workflow](https://github.com/shawalkabirchy/microonboard/actions/workflows/validate.yml) covers the fix and its delayed-hydration regression.
+The follow-up release fixes both preview startup orders: the parent requests readiness after installing its listener, and retains picker/validation requests until the preview is ready. Deterministic regressions delay each document separately. This changes the application preview, with no change to the independent runtime, configuration, persisted drafts or the published embed hash. The latest [validation workflow](https://github.com/shawalkabirchy/microonboard/actions/workflows/validate.yml) covers the fixes and their delayed-hydration regressions. Earlier live evidence above remains tied to its explicitly recorded commit.
 
 ## Owner handoff
 

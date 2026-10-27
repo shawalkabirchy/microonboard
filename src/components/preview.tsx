@@ -38,6 +38,8 @@ export function Preview({
     callbacks.current = { onPick, onError };
   }, [config, onPick, onError]);
   const [ready, setReady] = useState(false);
+  const connected = useRef(false);
+  const outbound = useRef(new Map<string, Record<string, unknown>>());
   const pending = useRef(
     new Map<
       string,
@@ -49,10 +51,15 @@ export function Preview({
     >(),
   );
   function send(action: string, extra: Record<string, unknown> = {}) {
-    frame.current?.contentWindow?.postMessage(
-      { channel: "microonboard-preview", action, ...extra },
-      location.origin,
-    );
+    const message = { channel: "microonboard-preview", action, ...extra };
+    if (action !== "hello" && !connected.current) {
+      outbound.current.set(
+        typeof extra.requestId === "string" ? extra.requestId : action,
+        message,
+      );
+      return;
+    }
+    frame.current?.contentWindow?.postMessage(message, location.origin);
   }
   useImperativeHandle(ref, () => ({
     pick() {
@@ -63,6 +70,7 @@ export function Preview({
         const requestId = crypto.randomUUID();
         const timer = setTimeout(() => {
           pending.current.delete(requestId);
+          outbound.current.delete(requestId);
           reject(
             new Error("The preview is unavailable. Reload it and try again."),
           );
@@ -74,6 +82,7 @@ export function Preview({
   }));
   useEffect(() => {
     const requests = pending.current;
+    const messages = outbound.current;
     function receive(event: MessageEvent) {
       if (
         event.origin !== location.origin ||
@@ -83,7 +92,11 @@ export function Preview({
         return;
       const message = event.data;
       if (message.type === "ready") {
+        connected.current = true;
         setReady(true);
+        for (const waiting of messages.values())
+          frame.current?.contentWindow?.postMessage(waiting, location.origin);
+        messages.clear();
         if (hero)
           frame.current?.contentWindow?.postMessage(
             {
@@ -126,6 +139,8 @@ export function Preview({
     );
     return () => {
       window.removeEventListener("message", receive);
+      connected.current = false;
+      messages.clear();
       for (const request of requests.values()) {
         clearTimeout(request.timer);
         request.reject(new Error("Preview closed."));
