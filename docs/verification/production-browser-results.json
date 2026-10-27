@@ -1,0 +1,200 @@
+{
+  "baseURL": "https://microonboard.pages.dev",
+  "commit": "ee56f4a78b03b7e4d3ee049117fadab636bc7560",
+  "deploymentId": "d1486be4-2986-44bf-b9ea-c7a85115f268",
+  "command": "TEST_BASE_URL=https://microonboard.pages.dev npx playwright test --project=chromium",
+  "stats": {
+    "startTime": "2026-10-27T13:26:13.783Z",
+    "duration": 236421.671,
+    "expected": 23,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "checks": [
+    {
+      "file": "app.spec.ts",
+      "title": "the phone landing preview does not scroll its parent page",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 31493,
+      "startedAt": "2026-10-27T13:26:16.150Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "landing identity, real app preview, no console errors and working primary action",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 15848,
+      "startedAt": "2026-10-27T13:26:48.951Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "builder saves locally, rejects ambiguous manual targets and preserves the last valid draft",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 21801,
+      "startedAt": "2026-10-27T13:27:06.133Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "builder picker does not open the selected host control and preserves step IDs during reordering",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 7731,
+      "startedAt": "2026-10-27T13:27:29.498Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "export freezes a version and rejects changed content until the version is increased",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 13643,
+      "startedAt": "2026-10-27T13:27:37.391Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "valid backup replacement requires confirmation; invalid imports do not touch saved work or upload content",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 15997,
+      "startedAt": "2026-10-27T13:27:51.203Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "two real tabs cannot overwrite one another with stale saves",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 11410,
+      "startedAt": "2026-10-27T13:28:07.238Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "blocked IndexedDB and quota failure keep pending work and offer recovery",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 3698,
+      "startedAt": "2026-10-27T13:28:18.932Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "quota failure preserves a committed draft",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 4606,
+      "startedAt": "2026-10-27T13:28:22.739Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "unsaved navigation is explicit and sample workspace controls work",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 7529,
+      "startedAt": "2026-10-27T13:28:27.616Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "browser Back protects unsaved text with the native unload dialog",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 9742,
+      "startedAt": "2026-10-27T13:28:35.294Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "responsive pages and WCAG automated checks",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 49300,
+      "startedAt": "2026-10-27T13:28:45.115Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A1 picker falls back to a stable unique ID when a tour attribute is ambiguous",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 3070,
+      "startedAt": "2026-10-27T13:29:34.633Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A2/A4 finish, replay, versioned completion and reset",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 1981,
+      "startedAt": "2026-10-27T13:29:37.746Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A2/A6 keyboard focus, back, stop/restart, no duplicate roots and final destroy",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 2274,
+      "startedAt": "2026-10-27T13:29:39.786Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A3 waits for a delayed target, rejects wrong pages and invalid selectors",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 1935,
+      "startedAt": "2026-10-27T13:29:42.103Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A3 skips a missing middle step without completion, and can recover by going back",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 7926,
+      "startedAt": "2026-10-27T13:29:44.076Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A3 last, hidden and ambiguous targets never create completion",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 7585,
+      "startedAt": "2026-10-27T13:29:52.138Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A5 literal text, no runtime network, private fields unchanged through picking",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 1432,
+      "startedAt": "2026-10-27T13:29:59.858Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A7 strict nonce policy works without violations or inline styles",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 1428,
+      "startedAt": "2026-10-27T13:30:01.336Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A7 completion survives storage failure only for the page session",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 2023,
+      "startedAt": "2026-10-27T13:30:02.795Z"
+    },
+    {
+      "file": "runtime.spec.ts",
+      "title": "P09-A6 tooltip remains within the phone viewport after resize and scroll",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 2909,
+      "startedAt": "2026-10-27T13:30:04.860Z"
+    },
+    {
+      "file": "touch.spec.ts",
+      "title": "P09-A2 touch controls and reduced-motion context complete a real tour",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 1854,
+      "startedAt": "2026-10-27T13:30:07.844Z"
+    }
+  ]
+}

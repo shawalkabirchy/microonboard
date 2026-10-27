@@ -57,7 +57,7 @@ Version **1.0.0** measures **53,980 bytes minified**, **19,773 bytes gzip**, **1
 
 Reviewed captures: [desktop landing](screenshots/landing-desktop.png), [desktop builder](screenshots/builder-desktop.png), [phone landing](screenshots/landing-phone.png), and [phone demo](screenshots/demo-phone.png). They use synthetic data and were compared with the generated visual references. [Capture metadata](verification/screenshots.json) records the actual viewports and browser, with no page errors. [Portfolio copy, 45–60 second walkthrough, and three unpublished LinkedIn drafts](portfolio.md) label the project as self-initiated. [Integration examples](integration.md) cover plain HTML, React, author mode, CSP and teardown. [Pages deployment and rollback](deployment.md) explains the Git integration and browser-data limits.
 
-Production verification is recorded separately after deployment; a local pass does not prove Cloudflare delivery behavior.
+Production verification: the GitHub Actions run passed **69/69 browser cases** on Linux (Chromium, Firefox, WebKit), plus all five unit tests and the checked production build. Cloudflare's Git-integrated build also passed with the pinned Node/npm versions. All **23/23 Chromium cases** passed again against the real HTTPS production origin, including imports, downloads, saved data, CSP, touch and accessibility checks. [Live release handoff](release.md), [actual Pages configuration](verification/pages-config.json), [live browser results](verification/production-browser-results.json), and [production HTTP/header/hash results](verification/production-http.json) record delivery evidence separately from local verification.
 
 ## Not run and practical limits
 

@@ -5,6 +5,7 @@
 - **Live app:** https://microonboard.pages.dev
 - **Repository:** https://github.com/shawalkabirchy/microonboard
 - **Verification:** [acceptance matrix](docs/acceptance.md)
+- **Release:** [deployment and owner handoff](docs/release.md)
 - **Integration:** [host installation and lifecycle](docs/integration.md)
 - **Portfolio:** [walkthrough script and LinkedIn drafts](docs/portfolio.md), [screenshots](docs/screenshots/)
 

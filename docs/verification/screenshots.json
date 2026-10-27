@@ -31,5 +31,7 @@
       "fullPage": true
     }
   ],
-  "errors": []
+  "errors": [],
+  "builderRecapturedAt": "2026-10-27T13:25:32.730Z",
+  "builderCaptureNote": "Neutral parent focus avoids the focused-iframe screenshot artifact; the non-modal preview remains open."
 }

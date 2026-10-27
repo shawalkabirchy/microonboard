@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-10-27T13:30:21.375Z",
+  "name": "microonboard",
+  "subdomain": "microonboard.pages.dev",
+  "productionBranch": "main",
+  "source": {
+    "type": "github",
+    "config": {
+      "owner": "shawalkabirchy",
+      "owner_id": "199981957",
+      "repo_name": "microonboard",
+      "repo_id": "1435610172",
+      "production_branch": "main",
+      "pr_comments_enabled": false,
+      "deployments_enabled": true,
+      "production_deployments_enabled": true,
+      "preview_deployment_setting": "all",
+      "preview_branch_includes": [
+        "*"
+      ],
+      "preview_branch_excludes": [],
+      "path_includes": [
+        "*"
+      ],
+      "path_excludes": []
+    }
+  },
+  "buildConfig": {
+    "build_command": "npm run build",
+    "destination_dir": "out",
+    "root_dir": "",
+    "web_analytics_tag": null,
+    "web_analytics_token": null
+  },
+  "usesFunctions": false,
+  "buildTools": {
+    "node": "24.14.0",
+    "npm": "11.14.1"
+  },
+  "configuredBindings": [],
+  "deployment": {
+    "id": "d1486be4-2986-44bf-b9ea-c7a85115f268",
+    "url": "https://d1486be4.microonboard.pages.dev",
+    "commit": "ee56f4a78b03b7e4d3ee049117fadab636bc7560",
+    "status": "success"
+  }
+}

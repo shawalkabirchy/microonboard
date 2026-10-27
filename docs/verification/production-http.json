@@ -1,0 +1,126 @@
+{
+  "checkedAt": "2026-10-27T13:27:24.557Z",
+  "baseURL": "https://microonboard.pages.dev",
+  "commit": "ee56f4a78b03b7e4d3ee049117fadab636bc7560",
+  "deploymentId": "d1486be4-2986-44bf-b9ea-c7a85115f268",
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "csp": null,
+      "nosniff": "nosniff",
+      "bytes": 22987
+    },
+    {
+      "path": "/builder/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "csp": null,
+      "nosniff": "nosniff",
+      "bytes": 15317
+    },
+    {
+      "path": "/demo/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "csp": null,
+      "nosniff": "nosniff",
+      "bytes": 24926
+    },
+    {
+      "path": "/preview/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "csp": null,
+      "nosniff": "nosniff",
+      "bytes": 16809
+    },
+    {
+      "path": "/case-study/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "csp": null,
+      "nosniff": "nosniff",
+      "bytes": 32009
+    },
+    {
+      "path": "/examples/plain/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "csp": null,
+      "nosniff": "nosniff",
+      "bytes": 1784
+    },
+    {
+      "path": "/examples/strict/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "csp": "default-src 'none'; script-src 'self'; style-src 'nonce-microonboard-test'; style-src-attr 'none'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'",
+      "nosniff": "nosniff",
+      "bytes": 2183
+    },
+    {
+      "path": "/embed/1.0.0/microonboard.min.js",
+      "status": 200,
+      "contentType": "application/javascript",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "csp": null,
+      "nosniff": "nosniff",
+      "bytes": 53980,
+      "sha256": "e2138e2c4b176c32587f6d4cd130a909ac988c755a5af2de0fc15d63f1e956f0"
+    },
+    {
+      "path": "/embed/1.0.0/tour.schema.json",
+      "status": 200,
+      "contentType": "application/json",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "csp": null,
+      "nosniff": "nosniff",
+      "bytes": 2606
+    },
+    {
+      "path": "/embed/1.0.0/size.json",
+      "status": 200,
+      "contentType": "application/json",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "csp": null,
+      "nosniff": "nosniff",
+      "bytes": 154
+    },
+    {
+      "path": "/example-tour.json",
+      "status": 200,
+      "contentType": "application/json",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "csp": null,
+      "nosniff": "nosniff",
+      "bytes": 1273
+    },
+    {
+      "path": "/third-party-notices.txt",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "csp": null,
+      "nosniff": "nosniff",
+      "bytes": 624292
+    },
+    {
+      "path": "/missing-embed.js",
+      "status": 404,
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "no-store",
+      "csp": null,
+      "nosniff": "nosniff",
+      "bytes": 6438
+    }
+  ]
+}
