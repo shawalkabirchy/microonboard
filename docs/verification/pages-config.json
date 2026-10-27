@@ -43,5 +43,11 @@
     "url": "https://d1486be4.microonboard.pages.dev",
     "commit": "ee56f4a78b03b7e4d3ee049117fadab636bc7560",
     "status": "success"
+  },
+  "dashboardObservation": {
+    "checkedAt": "2026-10-27T13:55:37.672Z",
+    "message": "This project is disconnected from your Git account. This may cause deployments to fail.",
+    "automaticPushDelivery": "Did not trigger for commit 677daf0aefe51130f6c2b437aa7711dad518914c",
+    "needsOwnerGitVerification": true
   }
 }

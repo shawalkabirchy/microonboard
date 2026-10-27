@@ -52,6 +52,8 @@ Recovery downloads preserve pending text but are labelled **recovery only** and 
 
 Cloudflare Pages **Git integration**, production branch `main`, repository root, build command `npm run build`, output directory `out`, Node `24.14.0`, npm `11.14.1`. No Pages Functions, database, paid resources, or application secrets are needed. Preview branches are enabled and analytics remain disabled. [Deployment and rollback](docs/deployment.md).
 
+**Connection limitation:** Cloudflare currently reports the Git account as disconnected. The live site is published by an explicit Pages Git-branch build; automatic pushes and preview delivery require the owner's GitHub installation verification. The saved automatic-deployment settings alone do not prove those triggers work.
+
 GitHub Actions independently runs the checked build and browser suite. On later changes, wait for validation before merging to `main`; Pages Git integration deploys a pushed `main` independently of Actions.
 
 ## Limits and troubleshooting

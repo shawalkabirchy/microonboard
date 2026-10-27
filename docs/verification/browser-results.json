@@ -33,6 +33,18 @@
         "unexpected": 0,
         "flaky": 0
       }
+    },
+    {
+      "label": "All editor and preview cases after hydration-handshake fix: 51 passed, one Firefox ordering fixture skipped",
+      "command": "npx playwright test tests/e2e/app.spec.ts",
+      "stats": {
+        "startTime": "2026-10-27T13:49:05.880Z",
+        "duration": 532300.8150000001,
+        "expected": 51,
+        "skipped": 1,
+        "unexpected": 0,
+        "flaky": 0
+      }
     }
   ],
   "checks": [
@@ -41,384 +53,384 @@
       "title": "the phone landing preview does not scroll its parent page",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 8630,
-      "startedAt": "2026-10-27T12:43:15.068Z"
+      "durationMs": 1177,
+      "startedAt": "2026-10-27T13:49:11.448Z"
     },
     {
       "file": "app.spec.ts",
       "title": "landing identity, real app preview, no console errors and working primary action",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 4797,
-      "startedAt": "2026-10-27T12:43:28.142Z"
+      "durationMs": 4228,
+      "startedAt": "2026-10-27T13:49:12.671Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder saves locally, rejects ambiguous manual targets and preserves the last valid draft",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 9534,
-      "startedAt": "2026-10-27T12:43:33.122Z"
+      "durationMs": 8039,
+      "startedAt": "2026-10-27T13:49:16.963Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder picker does not open the selected host control and preserves step IDs during reordering",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 8291,
-      "startedAt": "2026-10-27T12:43:42.791Z"
+      "durationMs": 7810,
+      "startedAt": "2026-10-27T13:49:25.114Z"
     },
     {
       "file": "app.spec.ts",
       "title": "export freezes a version and rejects changed content until the version is increased",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 8836,
-      "startedAt": "2026-10-27T12:43:51.171Z"
+      "durationMs": 2900,
+      "startedAt": "2026-10-27T13:49:33.067Z"
     },
     {
       "file": "app.spec.ts",
       "title": "valid backup replacement requires confirmation; invalid imports do not touch saved work or upload content",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 9193,
-      "startedAt": "2026-10-27T12:44:00.307Z"
+      "durationMs": 7081,
+      "startedAt": "2026-10-27T13:49:36.024Z"
     },
     {
       "file": "app.spec.ts",
       "title": "two real tabs cannot overwrite one another with stale saves",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 7226,
-      "startedAt": "2026-10-27T12:44:09.568Z"
+      "durationMs": 7176,
+      "startedAt": "2026-10-27T13:49:43.143Z"
     },
     {
       "file": "app.spec.ts",
       "title": "blocked IndexedDB and quota failure keep pending work and offer recovery",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 2639,
-      "startedAt": "2026-10-27T13:16:21.524Z"
+      "durationMs": 4260,
+      "startedAt": "2026-10-27T13:49:50.422Z"
     },
     {
       "file": "app.spec.ts",
       "title": "quota failure preserves a committed draft",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 8053,
-      "startedAt": "2026-10-27T12:44:24.452Z"
+      "durationMs": 6183,
+      "startedAt": "2026-10-27T13:49:54.734Z"
     },
     {
       "file": "app.spec.ts",
       "title": "unsaved navigation is explicit and sample workspace controls work",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 8301,
-      "startedAt": "2026-10-27T13:16:24.603Z"
+      "durationMs": 10245,
+      "startedAt": "2026-10-27T13:50:00.970Z"
     },
     {
       "file": "app.spec.ts",
       "title": "browser Back protects unsaved text with the native unload dialog",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 10015,
-      "startedAt": "2026-10-27T12:44:41.586Z"
+      "durationMs": 8371,
+      "startedAt": "2026-10-27T13:50:11.261Z"
     },
     {
       "file": "app.spec.ts",
       "title": "responsive pages and WCAG automated checks",
       "project": "chromium",
       "status": "passed",
-      "durationMs": 26621,
-      "startedAt": "2026-10-27T12:44:51.647Z"
+      "durationMs": 25312,
+      "startedAt": "2026-10-27T13:50:19.697Z"
     },
     {
       "file": "app.spec.ts",
       "title": "the phone landing preview does not scroll its parent page",
       "project": "firefox",
       "status": "passed",
-      "durationMs": 23589,
-      "startedAt": "2026-10-27T12:45:49.046Z"
+      "durationMs": 10353,
+      "startedAt": "2026-10-27T13:50:58.299Z"
     },
     {
       "file": "app.spec.ts",
       "title": "landing identity, real app preview, no console errors and working primary action",
       "project": "firefox",
       "status": "passed",
-      "durationMs": 23885,
-      "startedAt": "2026-10-27T12:46:15.013Z"
+      "durationMs": 34625,
+      "startedAt": "2026-10-27T13:51:08.974Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder saves locally, rejects ambiguous manual targets and preserves the last valid draft",
       "project": "firefox",
       "status": "passed",
-      "durationMs": 25150,
-      "startedAt": "2026-10-27T12:46:39.110Z"
+      "durationMs": 17301,
+      "startedAt": "2026-10-27T13:51:44.108Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder picker does not open the selected host control and preserves step IDs during reordering",
       "project": "firefox",
       "status": "passed",
-      "durationMs": 15672,
-      "startedAt": "2026-10-27T12:47:04.587Z"
+      "durationMs": 10650,
+      "startedAt": "2026-10-27T13:52:01.576Z"
     },
     {
       "file": "app.spec.ts",
       "title": "export freezes a version and rejects changed content until the version is increased",
       "project": "firefox",
       "status": "passed",
-      "durationMs": 14517,
-      "startedAt": "2026-10-27T12:47:20.692Z"
+      "durationMs": 11993,
+      "startedAt": "2026-10-27T13:52:12.363Z"
     },
     {
       "file": "app.spec.ts",
       "title": "valid backup replacement requires confirmation; invalid imports do not touch saved work or upload content",
       "project": "firefox",
       "status": "passed",
-      "durationMs": 36119,
-      "startedAt": "2026-10-27T12:47:35.489Z"
+      "durationMs": 15871,
+      "startedAt": "2026-10-27T13:52:24.459Z"
     },
     {
       "file": "app.spec.ts",
       "title": "two real tabs cannot overwrite one another with stale saves",
       "project": "firefox",
       "status": "passed",
-      "durationMs": 25857,
-      "startedAt": "2026-10-27T12:48:11.764Z"
+      "durationMs": 24513,
+      "startedAt": "2026-10-27T13:52:40.653Z"
     },
     {
       "file": "app.spec.ts",
       "title": "blocked IndexedDB and quota failure keep pending work and offer recovery",
       "project": "firefox",
       "status": "passed",
-      "durationMs": 19888,
-      "startedAt": "2026-10-27T13:17:02.599Z"
+      "durationMs": 6555,
+      "startedAt": "2026-10-27T13:53:05.390Z"
     },
     {
       "file": "app.spec.ts",
       "title": "quota failure preserves a committed draft",
       "project": "firefox",
       "status": "passed",
-      "durationMs": 33874,
-      "startedAt": "2026-10-27T12:48:55.867Z"
+      "durationMs": 11847,
+      "startedAt": "2026-10-27T13:53:11.994Z"
     },
     {
       "file": "app.spec.ts",
       "title": "unsaved navigation is explicit and sample workspace controls work",
       "project": "firefox",
       "status": "passed",
-      "durationMs": 21073,
-      "startedAt": "2026-10-27T13:17:24.332Z"
+      "durationMs": 11512,
+      "startedAt": "2026-10-27T13:53:23.983Z"
     },
     {
       "file": "app.spec.ts",
       "title": "browser Back protects unsaved text with the native unload dialog",
       "project": "firefox",
       "status": "passed",
-      "durationMs": 20076,
-      "startedAt": "2026-10-27T12:49:55.988Z"
+      "durationMs": 13266,
+      "startedAt": "2026-10-27T13:53:35.559Z"
     },
     {
       "file": "app.spec.ts",
       "title": "responsive pages and WCAG automated checks",
       "project": "firefox",
       "status": "passed",
-      "durationMs": 66055,
-      "startedAt": "2026-10-27T12:50:16.233Z"
+      "durationMs": 37188,
+      "startedAt": "2026-10-27T13:53:48.874Z"
     },
     {
       "file": "app.spec.ts",
       "title": "the phone landing preview does not scroll its parent page",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 1993,
-      "startedAt": "2026-10-27T12:52:33.656Z"
+      "durationMs": 1873,
+      "startedAt": "2026-10-27T13:54:34.342Z"
     },
     {
       "file": "app.spec.ts",
       "title": "landing identity, real app preview, no console errors and working primary action",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 8077,
-      "startedAt": "2026-10-27T12:52:36.049Z"
+      "durationMs": 5381,
+      "startedAt": "2026-10-27T13:54:36.366Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder saves locally, rejects ambiguous manual targets and preserves the last valid draft",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 16409,
-      "startedAt": "2026-10-27T12:52:44.304Z"
+      "durationMs": 8055,
+      "startedAt": "2026-10-27T13:54:41.789Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder picker does not open the selected host control and preserves step IDs during reordering",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 10830,
-      "startedAt": "2026-10-27T12:53:00.911Z"
+      "durationMs": 7270,
+      "startedAt": "2026-10-27T13:54:49.976Z"
     },
     {
       "file": "app.spec.ts",
       "title": "export freezes a version and rejects changed content until the version is increased",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 9316,
-      "startedAt": "2026-10-27T12:53:11.909Z"
+      "durationMs": 8419,
+      "startedAt": "2026-10-27T13:54:57.359Z"
     },
     {
       "file": "app.spec.ts",
       "title": "valid backup replacement requires confirmation; invalid imports do not touch saved work or upload content",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 17033,
-      "startedAt": "2026-10-27T12:53:22.075Z"
+      "durationMs": 8010,
+      "startedAt": "2026-10-27T13:55:05.819Z"
     },
     {
       "file": "app.spec.ts",
       "title": "two real tabs cannot overwrite one another with stale saves",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 16784,
-      "startedAt": "2026-10-27T12:53:39.453Z"
+      "durationMs": 14714,
+      "startedAt": "2026-10-27T13:55:13.886Z"
     },
     {
       "file": "app.spec.ts",
       "title": "blocked IndexedDB and quota failure keep pending work and offer recovery",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 4822,
-      "startedAt": "2026-10-27T13:19:14.720Z"
+      "durationMs": 5399,
+      "startedAt": "2026-10-27T13:55:28.742Z"
     },
     {
       "file": "app.spec.ts",
       "title": "quota failure preserves a committed draft",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 5030,
-      "startedAt": "2026-10-27T12:54:06.314Z"
+      "durationMs": 13143,
+      "startedAt": "2026-10-27T13:55:34.282Z"
     },
     {
       "file": "app.spec.ts",
       "title": "unsaved navigation is explicit and sample workspace controls work",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 11613,
-      "startedAt": "2026-10-27T13:19:19.878Z"
+      "durationMs": 10334,
+      "startedAt": "2026-10-27T13:55:47.555Z"
     },
     {
       "file": "app.spec.ts",
       "title": "browser Back protects unsaved text with the native unload dialog",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 2892,
-      "startedAt": "2026-10-27T12:54:22.451Z"
+      "durationMs": 4022,
+      "startedAt": "2026-10-27T13:55:57.946Z"
     },
     {
       "file": "app.spec.ts",
       "title": "responsive pages and WCAG automated checks",
       "project": "webkit",
       "status": "passed",
-      "durationMs": 52945,
-      "startedAt": "2026-10-27T12:54:25.511Z"
+      "durationMs": 38072,
+      "startedAt": "2026-10-27T13:56:02.019Z"
     },
     {
       "file": "app.spec.ts",
       "title": "the phone landing preview does not scroll its parent page",
       "project": "edge",
       "status": "passed",
-      "durationMs": 1122,
-      "startedAt": "2026-10-27T12:56:10.945Z"
+      "durationMs": 3270,
+      "startedAt": "2026-10-27T13:56:46.498Z"
     },
     {
       "file": "app.spec.ts",
       "title": "landing identity, real app preview, no console errors and working primary action",
       "project": "edge",
       "status": "passed",
-      "durationMs": 1942,
-      "startedAt": "2026-10-27T12:56:12.699Z"
+      "durationMs": 4076,
+      "startedAt": "2026-10-27T13:56:49.977Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder saves locally, rejects ambiguous manual targets and preserves the last valid draft",
       "project": "edge",
       "status": "passed",
-      "durationMs": 8836,
-      "startedAt": "2026-10-27T12:56:14.682Z"
+      "durationMs": 6916,
+      "startedAt": "2026-10-27T13:56:54.099Z"
     },
     {
       "file": "app.spec.ts",
       "title": "builder picker does not open the selected host control and preserves step IDs during reordering",
       "project": "edge",
       "status": "passed",
-      "durationMs": 10696,
-      "startedAt": "2026-10-27T12:56:23.898Z"
+      "durationMs": 6884,
+      "startedAt": "2026-10-27T13:57:01.058Z"
     },
     {
       "file": "app.spec.ts",
       "title": "export freezes a version and rejects changed content until the version is increased",
       "project": "edge",
       "status": "passed",
-      "durationMs": 7364,
-      "startedAt": "2026-10-27T12:56:35.003Z"
+      "durationMs": 8314,
+      "startedAt": "2026-10-27T13:57:08.112Z"
     },
     {
       "file": "app.spec.ts",
       "title": "valid backup replacement requires confirmation; invalid imports do not touch saved work or upload content",
       "project": "edge",
       "status": "passed",
-      "durationMs": 4617,
-      "startedAt": "2026-10-27T12:56:42.568Z"
+      "durationMs": 6654,
+      "startedAt": "2026-10-27T13:57:16.645Z"
     },
     {
       "file": "app.spec.ts",
       "title": "two real tabs cannot overwrite one another with stale saves",
       "project": "edge",
       "status": "passed",
-      "durationMs": 9232,
-      "startedAt": "2026-10-27T12:56:47.236Z"
+      "durationMs": 7203,
+      "startedAt": "2026-10-27T13:57:23.379Z"
     },
     {
       "file": "app.spec.ts",
       "title": "blocked IndexedDB and quota failure keep pending work and offer recovery",
       "project": "edge",
       "status": "passed",
-      "durationMs": 2985,
-      "startedAt": "2026-10-27T13:20:36.261Z"
+      "durationMs": 4040,
+      "startedAt": "2026-10-27T13:57:30.716Z"
     },
     {
       "file": "app.spec.ts",
       "title": "quota failure preserves a committed draft",
       "project": "edge",
       "status": "passed",
-      "durationMs": 8683,
-      "startedAt": "2026-10-27T12:57:02.827Z"
+      "durationMs": 5072,
+      "startedAt": "2026-10-27T13:57:34.919Z"
     },
     {
       "file": "app.spec.ts",
       "title": "unsaved navigation is explicit and sample workspace controls work",
       "project": "edge",
       "status": "passed",
-      "durationMs": 6454,
-      "startedAt": "2026-10-27T13:20:40.187Z"
+      "durationMs": 1855,
+      "startedAt": "2026-10-27T13:57:40.125Z"
     },
     {
       "file": "app.spec.ts",
       "title": "browser Back protects unsaved text with the native unload dialog",
       "project": "edge",
       "status": "passed",
-      "durationMs": 11503,
-      "startedAt": "2026-10-27T12:57:25.035Z"
+      "durationMs": 6012,
+      "startedAt": "2026-10-27T13:57:42.001Z"
     },
     {
       "file": "app.spec.ts",
       "title": "responsive pages and WCAG automated checks",
       "project": "edge",
       "status": "passed",
-      "durationMs": 43121,
-      "startedAt": "2026-10-27T12:57:36.587Z"
+      "durationMs": 9582,
+      "startedAt": "2026-10-27T13:57:48.036Z"
     },
     {
       "file": "runtime.spec.ts",
@@ -771,16 +783,49 @@
       "status": "passed",
       "durationMs": 3095,
       "startedAt": "2026-10-27T13:21:30.883Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "landing preview starts when the child is ready before parent hydration",
+      "project": "chromium",
+      "status": "passed",
+      "durationMs": 2236,
+      "startedAt": "2026-10-27T13:49:08.468Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "landing preview starts when the child is ready before parent hydration",
+      "project": "firefox",
+      "status": "skipped",
+      "durationMs": 8151,
+      "startedAt": "2026-10-27T13:50:48.011Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "landing preview starts when the child is ready before parent hydration",
+      "project": "webkit",
+      "status": "passed",
+      "durationMs": 4265,
+      "startedAt": "2026-10-27T13:54:29.721Z"
+    },
+    {
+      "file": "app.spec.ts",
+      "title": "landing preview starts when the child is ready before parent hydration",
+      "project": "edge",
+      "status": "passed",
+      "durationMs": 3261,
+      "startedAt": "2026-10-27T13:56:41.986Z"
     }
   ],
   "summary": {
-    "uniqueChecks": 92,
-    "passed": 92,
+    "uniqueChecks": 96,
+    "passed": 95,
+    "skipped": 1,
     "byProject": {
-      "chromium": 23,
+      "chromium": 24,
       "firefox": 23,
-      "webkit": 23,
-      "edge": 23
+      "webkit": 24,
+      "edge": 24
     }
   }
 }

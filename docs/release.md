@@ -13,7 +13,7 @@ MicroOnboard is a self-initiated ConsoleLog Studio portfolio project, released o
 
 ## Hosting verification
 
-The actual Pages project has GitHub source integration, production branch `main`, automatic production deployments, and previews for all other branches. Repository root, `npm run build`, and `out` are configured. Build logs confirmed **Node 24.14.0 and npm 11.14.1**, the five passing unit tests, and runtime size identical to the local build.
+The actual Pages project has GitHub source integration, production branch `main`, automatic production settings, and preview settings for all other branches. **Automatic delivery is not working yet:** the dashboard reports a disconnected Git account, and a follow-up push produced no Pages deployment. GitHub requires the owner's two-factor verification before installation access can be inspected. [Connection repair and explicit Git-build procedure](deployment.md#git-account-connection-requires-owner-verification). Repository root, `npm run build`, and `out` are configured. Build logs confirmed **Node 24.14.0 and npm 11.14.1**, the five passing unit tests, and runtime size identical to the local build.
 
 Cloudflare reports `uses_functions: false`. Web analytics tag/token are null and no database or other service binding is configured. The first deployment was started through the Git-branch deployment API and cloned the source commit; it was not a Direct Upload.
 
@@ -23,7 +23,9 @@ The deployed runtime SHA-256 is `e2138e2c4b176c32587f6d4cd130a909ac988c755a5af2d
 
 Live browser acceptance passed **23/23 Chromium cases** on the actual production origin. [Per-check results](verification/production-browser-results.json) include direct routes, local saves/reload, backups/imports, recovery, downloads, the visual picker, sample app controls, keyboard, touch emulation, CSP and the plain host. The actual command was `$env:TEST_BASE_URL='https://microonboard.pages.dev'; npx playwright test --project=chromium` in PowerShell.
 
-Documentation and screenshot refinements may follow the tested application commit and trigger another automatic deployment. They do not change the versioned runtime. The repository's latest Actions run and Pages deployment identify the currently published commit.
+Documentation and screenshot refinements may follow the tested application commit. The versioned runtime remains unchanged. Until the Git account connection is repaired, invoke the documented Git-branch build explicitly after a checked push. The repository's latest Actions run and Pages deployment identify the currently published commit.
+
+The follow-up release fixes an intermittent landing-preview handshake race found by the second CI run. The parent requests readiness again after installing its listener. This changes the application preview, with no change to the independent runtime, configuration, persisted drafts or the published embed hash. The latest [validation workflow](https://github.com/shawalkabirchy/microonboard/actions/workflows/validate.yml) covers the fix and its delayed-hydration regression.
 
 ## Owner handoff
 

@@ -119,6 +119,11 @@ export function Preview({
       }
     }
     window.addEventListener("message", receive);
+    // The child can finish hydration before this listener is installed.
+    frame.current?.contentWindow?.postMessage(
+      { channel: "microonboard-preview", action: "hello" },
+      location.origin,
+    );
     return () => {
       window.removeEventListener("message", receive);
       for (const request of requests.values()) {

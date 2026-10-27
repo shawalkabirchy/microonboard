@@ -21,6 +21,14 @@ On a fresh computer or CI runner, run `npm ci` and `npm run build:embed` before 
 
 Before pushing a release, run the checked production build and browser tests. GitHub Actions validates pushes and pull requests independently; it is not a promise that Pages waits for the Actions result. Validate before merging to `main`.
 
+## Git-account connection requires owner verification
+
+At release, the API retains a GitHub repository source and automatic production/preview settings, but the dashboard reports **“This project is disconnected from your Git account. This may cause deployments to fail.”** A follow-up push did not create a Pages deployment. Do not treat the saved settings as proof that push delivery works.
+
+GitHub's Cloudflare installation management page requires the owner's two-factor verification. In GitHub Settings → Applications → Cloudflare Workers and Pages → Configure, verify that `shawalkabirchy/microonboard` is accessible to the installation. Restore the account connection through Cloudflare if required, then verify a fresh push creates a `github:push` deployment. Do not uninstall the account-wide app: other projects use it.
+
+Until that connection is repaired, an explicit **Git-branch build** publishes the current `main` through `POST /accounts/{account_id}/pages/projects/microonboard/deployments` with multipart field `branch=main`. It clones the public Git repository and runs the configured build; no Direct Upload, Functions, new credential or database is needed. This publishes the site, but does not establish automatic push or branch-preview delivery.
+
 ## Smoke test
 
 Verify `/`, `/builder/`, `/demo/`, `/case-study/`, both plain/strict example hosts, the embed script, configuration schema, backup import/export, and direct navigation. Missing scripts must return a genuine 404. Check the strict host's response header and runtime operation. Confirm no Workers, Functions, database, analytics, or paid resource was added.

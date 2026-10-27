@@ -3,6 +3,51 @@ import AxeBuilder from "@axe-core/playwright";
 import { sampleTour } from "../../src/core/sample";
 import { newDraft, exportBackup } from "../../src/core/drafts";
 
+test("landing preview starts when the child is ready before parent hydration", async ({
+  page,
+  browserName,
+}) => {
+  test.skip(
+    browserName === "firefox",
+    "Firefox defers this fixture's ready event while the parent script is held; normal startup is covered separately.",
+  );
+  let release!: () => void;
+  const hydration = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  let intercepted = false;
+  await page.route("**/_next/static/chunks/app/page-*.js", async (route) => {
+    intercepted = true;
+    await hydration;
+    await route.continue();
+  });
+  await page.addInitScript(() => {
+    window.addEventListener("message", (event) => {
+      if (
+        event.origin === location.origin &&
+        event.data?.channel === "microonboard-preview" &&
+        event.data.type === "ready"
+      )
+        document.documentElement.dataset.previewChildReady = "true";
+    });
+  });
+  try {
+    await page.goto("/", { waitUntil: "commit" });
+    await expect
+      .poll(() =>
+        page.evaluate(() => document.documentElement.dataset.previewChildReady),
+      )
+      .toBe("true");
+    expect(intercepted).toBe(true);
+    release();
+    const frame = page.frameLocator("iframe");
+    await expect(frame.getByRole("dialog")).toBeVisible();
+    await expect(frame.locator("[data-microonboard-root]")).toHaveCount(1);
+  } finally {
+    release();
+  }
+});
+
 test("the phone landing preview does not scroll its parent page", async ({
   page,
 }) => {

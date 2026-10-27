@@ -14,6 +14,8 @@ $env:TEST_BASE_URL='http://127.0.0.1:4173'
 npx playwright test
 # Final regression after touch positioning and focus-fixture corrections:
 npx playwright test -g 'P09-|blocked IndexedDB|unsaved navigation'
+# After fixing the shared preview handshake:
+npx playwright test tests/e2e/app.spec.ts
 ```
 
 `npm run build` runs ESLint, TypeScript, five unit/contract tests, the independent embed build, JSON Schema and licence generation, then the Next.js static export. The embed build asserts that React, Next.js and idb are absent from its dependency graph.
@@ -27,9 +29,11 @@ npx playwright test -g 'P09-|blocked IndexedDB|unsaved navigation'
 | Branded Google Chrome | Not run | Chromium engine coverage above |
 | Actual Safari / iOS Safari | Not run | Unavailable on the Windows reference machine |
 
-All **92 unique browser cases** now have passing latest results: **23 per browser**. The final regression passed **52/52**, including every runtime case, storage failures, keyboard restoration and touch controls. The initial complete matrix passed 86/88 browser cases. The IndexedDB failure fixture was corrected to use `IDBFactory.prototype`. Focus-restoration tests now use keyboard activation to establish the prior focus consistently across engines. The first targeted run exposed actual WebKit touch overflow on a side-positioned tooltip. Enabling Floating UI cross-axis shifting fixed that behavior; the final regression covers every runtime case plus touch bounds and announced step progress. [Machine-readable runs and latest check results](verification/browser-results.json) preserve the initial run and subsequent verification rather than hiding its failures.
+All **95 executed unique browser cases** have passing latest results. One additional forced-ordering fixture is explicitly **Skipped** in Firefox (explained below). Chromium, WebKit and Edge each have 24 passing cases; Firefox has 23 passing normal-flow cases. The complete editor/preview rerun passed **51 cases with one skip** after the handshake fix. The runtime regression passed **52/52**, including every runtime case, storage failures, keyboard restoration and touch controls. The initial complete matrix passed 86/88 browser cases. The IndexedDB failure fixture was corrected to use `IDBFactory.prototype`. Focus-restoration tests now use keyboard activation to establish the prior focus consistently across engines. The first targeted run exposed actual WebKit touch overflow on a side-positioned tooltip. Enabling Floating UI cross-axis shifting fixed that behavior; the final regression covers every runtime case plus touch bounds and announced step progress. [Machine-readable runs and latest check results](verification/browser-results.json) preserve the initial run and subsequent verification rather than hiding its failures.
 
 On Windows Firefox, axe's blank-page aggregation stalled. Its documented same-origin legacy mode is used there, with an assertion that no frame is left untested. Other engines use normal aggregation. Automated WCAG A/AA checks cover the landing, builder and case study at 360 and 1440 px, including the active runtime inside the landing iframe. These checks supplement the keyboard tests; they are not accessibility certification.
+
+A subsequent documentation-push CI run passed 68/69 and exposed a preview startup race in WebKit: the child could signal readiness before the parent's message listener existed. The parent now requests a fresh handshake immediately after installing the listener. A regression holds the parent's route module until the real preview reports ready, then verifies one working tour. Firefox defers the fixture's ready event until the held parent module is released, so this artificial ordering case is explicitly skipped there; Firefox's normal startup, editor, runtime and accessibility coverage remains enabled. [Failed run that exposed the race](https://github.com/shawalkabirchy/microonboard/actions/runs/40512825295); the [validation workflow](https://github.com/shawalkabirchy/microonboard/actions/workflows/validate.yml) records subsequent results.
 
 ## Required acceptance checks
 
