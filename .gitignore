@@ -9,3 +9,5 @@ test-results/
 .wrangler/
 coverage/
 docs/design/
+# tasteskill dealing history (local)
+.taste-skill/
