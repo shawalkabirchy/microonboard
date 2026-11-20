@@ -37,7 +37,13 @@
     radial-gradient(70% 60% at 18% 12%, color-mix(in oklab, var(--ground-surface) 80%, white), transparent 70%),
     radial-gradient(60% 50% at 90% 100%, color-mix(in oklab, var(--ground-bg) 80%, var(--ground-accent)), transparent 70%),
     var(--ground-bg); }
-.hero__art > .ly-piece--note { left: var(--s-6); bottom: var(--s-6); width: 300px; z-index: 2; }
+.hero__art > .ly-piece--note { left: calc(var(--s-8) + var(--s-5)); bottom: calc(var(--s-6) + var(--s-5)); width: 300px; z-index: 2; }
+/* under 1280 the hero frame is shorter: the window drops its selected-step form so its lower edge shows */
+@media (max-width: 1279px) { .ly-piece--main .mo-sel { display: none; } }
+/* the window runs down to near the frame's foot, so the popover card sits wholly on it */
+.hero__art > .ly-piece--main { bottom: var(--s-6); }
+.hero__art > .ly-piece--main > .ui-win { height: 100%; overflow: hidden; }
+@media (max-width: 1023px) { .hero__art > .ly-piece--main { bottom: var(--s-4); } }
 .hero__proof { font-size: var(--t-small); color: var(--muted); }
 .ly-piece--main .ui-win { --fx-bg: #ffffff; }
 .ly-piece--main .ui-win--compact { width: 100%; }
@@ -48,7 +54,7 @@
 .mo-sel .ui-title { font-size: 14px; }
 .mo-sel__ok { display: flex; align-items: center; gap: 6px; margin-top: -4px; font-size: 12px; color: #1e6b42; }
 .mo-sel__ok::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-@media (max-width: 1023px) { .hero__art > .ly-piece--note { left: var(--s-4); bottom: var(--s-4); width: 270px; } }
+@media (max-width: 1023px) { .hero__art > .ly-piece--note { left: calc(var(--s-6) + var(--s-4)); bottom: calc(var(--s-4) + var(--s-4)); width: 270px; } }
 
 /* the tour popover as a visitor sees it (the runtime's own look: white, a hairline, the theme colour) */
 .mo-pop, .mo-keys {
@@ -124,7 +130,7 @@
 .mo-miss code { overflow-wrap: anywhere; }
 .mo-miss__foot { display: flex; align-items: center; gap: 8px; padding-top: 12px; border-top: 1px solid var(--u-line); color: var(--u-muted); }
 .mo-miss__foot > span:first-child { margin-right: auto; }
-@media (max-width: 639px) { #runtime .panel { --p-h: 168px; } #runtime .card > p { margin-bottom: 0; } }
+@media (max-width: 639px) { #runtime .section-head h2 .muted { display: none; } #runtime .panel { --p-h: 136px; } #runtime .card > p { margin-bottom: 0; } }
 /* 640 to 1023: each screen's card row runs to that screen's foot, as the kit does from 1024 */
 @media (min-width: 640px) and (max-width: 1023px) {
   #runtime.g2 > .wrap > .grid:last-child, #runtime.g2 > .wrap > .group > .grid:last-child { align-self: stretch; flex: 1 1 auto; min-height: 0; }
@@ -138,17 +144,29 @@
 @media (min-width: 640px) and (max-width: 1023px) {
   #how:not(.is-live) .mo-pc__step { grid-template-columns: minmax(0, 1fr); }
   #how:not(.is-live) .mo-pc__step h3, #how:not(.is-live) .mo-pc__step p { grid-column: 1; }
-  #how:not(.is-live) .mo-pc__step .mo-pc__visual { grid-column: 1; grid-row: auto; margin-top: var(--s-4); aspect-ratio: 16 / 9; }
+  #how:not(.is-live) .mo-pc__step .mo-pc__visual { grid-column: 1; grid-row: auto; margin-top: var(--s-4); aspect-ratio: 8 / 5; }
 }
+@media (min-width: 800px) and (max-width: 1023px) { #how:not(.is-live) .mo-pc__step .mo-pc__visual { aspect-ratio: 3 / 2; } }
 /* a short 1024-1279 window: the six answers take two screens rather than run past one */
 
 /* #questions: what a finished tour leaves behind, as the visitor's own storage panel shows it */
-.mo-store { margin-top: var(--s-6); --ratio: 0px; padding: var(--s-6); justify-content: flex-start; }
+.mo-store { margin-top: var(--s-6); --ratio: 0px; padding: var(--s-6); justify-content: center; }
 .mo-store__panel { width: min(100%, 460px); padding: 16px 18px; display: grid; gap: 10px; font: 400 13px/1.4 var(--font-text); color: var(--u-ink); }
 .mo-store__row { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 12px; padding: 8px 0; border-top: 1px solid var(--u-line); }
 .mo-store__head { color: var(--u-muted); border-top: 0; padding-bottom: 0; }
 .mo-store__row code { overflow-wrap: anywhere; }
 .mo-store .ui-meta { margin: 0; }
+.mo-store__panel > *, .mo-store__row > * { min-width: 0; }
+.mo-store .ui-title, .mo-store .ui-meta { white-space: normal; overflow-wrap: anywhere; }
+@media (max-width: 639px) { .mo-store { padding: var(--s-4); } .mo-store__row { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+/* 640 to 1023: the questions run in two columns under the intro, the storage panel beside the intro's
+   words, so the section stays one screen */
+@media (min-width: 640px) and (max-width: 1023px) {
+  #questions .grid > .stack-4 { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--s-5); row-gap: var(--s-4); align-content: start; }
+  #questions .grid > .stack-4 > :not(.mo-store) { grid-column: 1; margin: 0; }
+  #questions .grid > .stack-4 > .mo-store { grid-column: 2; grid-row: 1 / span 3; margin: 0; }
+  #questions .grid > .faq { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--s-5); align-content: start; margin-top: var(--s-6); }
+}
 
 /* #how on a phone: square screens, so the three steps carry their two screens */
 @media (max-width: 639px) {

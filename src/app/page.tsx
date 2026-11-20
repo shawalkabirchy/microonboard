@@ -68,11 +68,11 @@ const questions = [
     "In this browser's IndexedDB, up to 50 drafts. Export a backup, as browsers can clear site data.",
   ],
   [
-    "Does my site need React?",
+    "Does a tour need React on my site?",
     "No. The runtime is one plain JavaScript file. A React app creates the tour in an effect.",
   ],
   [
-    "What happens when a target is missing?",
+    "What happens when a tour target is missing?",
     "The step waits two seconds, then offers Skip step and End tour.",
   ],
   [
