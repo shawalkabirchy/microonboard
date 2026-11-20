@@ -40,11 +40,17 @@ export function Arrow() {
   );
 }
 
-function Logo({ href }: { href: string }) {
+function Logo({ href, lazy = false }: { href: string; lazy?: boolean }) {
   return (
     <a className="nav__logo" href={href}>
       {/* eslint-disable-next-line @next/next/no-img-element -- A static SVG mark; next/image adds nothing here. */}
-      <img src="/icon.svg" alt="" width={24} height={24} />
+      <img
+        src="/icon.svg"
+        alt=""
+        width={24}
+        height={24}
+        loading={lazy ? "lazy" : undefined}
+      />
       MicroOnboard
     </a>
   );
@@ -125,7 +131,7 @@ export function MarketingFooter({ home = false }: { home?: boolean }) {
         <div className="closing__links">
           <div className="grid">
             <div className="span-4 stack-4">
-              <Logo href={home ? "#top" : "/"} />
+              <Logo href={home ? "#top" : "/"} lazy />
               <p className="footer__lede">A better first five minutes.</p>
             </div>
             <div className="span-2 footer__col">

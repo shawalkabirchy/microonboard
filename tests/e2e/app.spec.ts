@@ -50,49 +50,18 @@ test("editor queues picking and validation until the preview is hydrated", async
   }
 });
 
-test("landing preview starts when the child is ready before parent hydration", async ({
+test("landing preview mounts as it nears the screen and starts the tour", async ({
   page,
-  browserName,
 }) => {
-  test.skip(
-    browserName === "firefox",
-    "Firefox defers this fixture's ready event while the parent script is held; normal startup is covered separately.",
-  );
-  let release!: () => void;
-  const hydration = new Promise<void>((resolve) => {
-    release = resolve;
-  });
-  let intercepted = false;
-  await page.route("**/_next/static/chunks/app/page-*.js", async (route) => {
-    intercepted = true;
-    await hydration;
-    await route.continue();
-  });
-  await page.addInitScript(() => {
-    window.addEventListener("message", (event) => {
-      if (
-        event.origin === location.origin &&
-        event.data?.channel === "microonboard-preview" &&
-        event.data.type === "ready"
-      )
-        document.documentElement.dataset.previewChildReady = "true";
-    });
-  });
-  try {
-    await page.goto("/", { waitUntil: "commit" });
-    await expect
-      .poll(() =>
-        page.evaluate(() => document.documentElement.dataset.previewChildReady),
-      )
-      .toBe("true");
-    expect(intercepted).toBe(true);
-    release();
-    const frame = page.frameLocator("iframe");
-    await expect(frame.getByRole("dialog")).toBeVisible();
-    await expect(frame.locator("[data-microonboard-root]")).toHaveCount(1);
-  } finally {
-    release();
-  }
+  // The live preview is the landing page's second section. It mounts its
+  // frame only as the frame nears the screen, so the page's first load
+  // carries one copy of React, not two.
+  await page.goto("/");
+  await page.locator("#builder").scrollIntoViewIfNeeded();
+  const frame = page.frameLocator("iframe");
+  await expect(frame.getByRole("dialog")).toBeVisible();
+  await expect(frame.locator("[data-microonboard-root]")).toHaveCount(1);
+  await expect(page.locator("iframe")).toHaveCount(1);
 });
 
 test("the phone landing preview does not scroll its parent page", async ({
@@ -100,8 +69,10 @@ test("the phone landing preview does not scroll its parent page", async ({
 }) => {
   await page.setViewportSize({ width: 360, height: 640 });
   await page.goto("/");
+  await page.locator("#builder").scrollIntoViewIfNeeded();
+  const before = await page.evaluate(() => scrollY);
   await expect(page.frameLocator("iframe").getByRole("dialog")).toBeVisible();
-  expect(await page.evaluate(() => scrollY)).toBe(0);
+  expect(await page.evaluate(() => scrollY)).toBe(before);
 });
 
 test("landing identity, real app preview, no console errors and working primary action", async ({
@@ -114,14 +85,14 @@ test("landing identity, real app preview, no console errors and working primary 
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
     "Product tour builder",
   );
+  // The live preview is the landing page's second section and mounts as it
+  // nears the screen; scrolling never leaves its frame, so scroll to it here.
+  await page.locator("#builder").scrollIntoViewIfNeeded();
   const frame = page.frameLocator("iframe");
   await expect(
     frame.getByRole("heading", { name: "Your projects" }),
   ).toBeVisible();
   await expect(frame.getByRole("dialog")).toBeVisible();
-  // The live preview is the landing page's second section; scrolling never
-  // leaves the frame, so bring the frame itself into view first.
-  await page.locator("iframe").scrollIntoViewIfNeeded();
   await frame.getByRole("button", { name: "Close tour", exact: true }).click();
   await page
     .getByRole("main")

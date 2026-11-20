@@ -40,6 +40,25 @@ export function Preview({
     callbacks.current = { onPick, onError };
   }, [config, onPick, onError]);
   const [ready, setReady] = useState(false);
+  // Bare mode mounts the live frame only as it nears the screen: the second
+  // copy of React it loads stays off the marketing pages' first load.
+  const holder = useRef<HTMLDivElement>(null);
+  const [near, setNear] = useState(!bare);
+  useEffect(() => {
+    const element = holder.current;
+    if (!bare || !element) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setNear(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px 0px" },
+    );
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [bare]);
   const connected = useRef(false);
   const outbound = useRef(new Map<string, Record<string, unknown>>());
   const pending = useRef(
@@ -161,17 +180,21 @@ export function Preview({
   // bare: only the live frame, for a window on the marketing pages to hold.
   if (bare)
     return (
-      <div className="preview-frame">
-        {/* The still shows while the live preview loads; the frame covers it. */}
+      <div className="preview-frame" ref={holder}>
+        {/* The still shows until the live preview loads; the frame covers it. */}
         {/* eslint-disable-next-line @next/next/no-img-element -- A static poster; the export has no image optimiser. */}
         <img
           className="preview-frame__poster"
           src="/site/preview-poster.webp"
+          srcSet="/site/preview-poster-390.webp 390w, /site/preview-poster.webp 760w"
+          sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1279px) 66vw, 760px"
           alt=""
           width={760}
           height={560}
+          loading="lazy"
+          decoding="async"
         />
-        {iframe}
+        {near ? iframe : null}
       </div>
     );
   return (
