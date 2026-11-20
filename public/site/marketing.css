@@ -1,0 +1,156 @@
+/*
+  MicroOnboard marketing pages: page CSS on top of the tasteskill kit (public/assets, unedited).
+  1. The :root block exactly as `start.mjs css --page software --palette offwhite-bottle-yellow
+     --type host --radius soft` printed it (after layout.css, which resets --ly-scale).
+  2. Only rules that sit inside a visual, the app-frame recipe, the skip link and one --p-h per group.
+*/
+:root {
+  --p-bg: #f7f7f7; --p-surface: #ebebeb; --p-ink: #0d2a1c; --p-muted: #5f6b64;
+  --p-accent: #f6e016; --p-accent-ink: #0d2a1c; --p-action: #0d2a1c; --p-action-ink: #f7f7f7;
+  --p-inv-bg: #0d2a1c; --p-inv-surface: #1c3629; --p-inv-ink: #f7f7f7; --p-inv-muted: #97a39c;
+  --p-inv-accent: #f6e016; --p-inv-accent-ink: #0d2a1c; --p-inv-action: #f6e016; --p-inv-action-ink: #0d2a1c;
+  --font-display: "Host Grotesk", system-ui, sans-serif;
+  --font-text: "Host Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display-weight: 500;
+  --display-tracking: -0.035em;
+  --display-tracking-xl: -0.04em;
+  --ui-font: var(--font-text);
+  --ui-mono: var(--font-mono);
+}
+
+/* the skip link: the header .wrap's first child, out of the flow until focused (system.md) */
+.skip-link {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+.skip-link:focus-visible {
+  width: auto; height: auto; clip-path: none; z-index: 20; top: 12px; left: var(--gut, 24px);
+  padding: 10px 16px; border-radius: var(--r-sm); background: var(--action); color: var(--action-ink);
+}
+
+/* the fragments' muted grey: the kit mixes its soft grey from it, and at the page's muted it reads 3.7:1 */
+.ui { --fx-muted: #3f4a44; }
+.mo-mono, .ui code, .ui .mo-mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0; }
+
+/* ---------- hero: the lit sky ground behind the window, under the dealt grain-gradient ---------- */
+.hero__art { background:
+    radial-gradient(70% 60% at 18% 12%, color-mix(in oklab, var(--ground-surface) 80%, white), transparent 70%),
+    radial-gradient(60% 50% at 90% 100%, color-mix(in oklab, var(--ground-bg) 80%, var(--ground-accent)), transparent 70%),
+    var(--ground-bg); }
+.hero__art > .ly-piece--note { left: var(--s-6); bottom: var(--s-6); width: 300px; z-index: 2; }
+.hero__proof { font-size: var(--t-small); color: var(--muted); }
+.ly-piece--main .ui-win { --fx-bg: #ffffff; }
+.ly-piece--main .ui-win--compact { width: 100%; }
+@media (min-width: 640px) { .ly-piece--main .ui-win--compact .ui-win__body { grid-template-columns: 152px 1fr; } }
+.ly-piece--main .ui-win__main, .ly-piece--main .ui-win__bar { padding-right: var(--ly-cut-room); }
+.ly-piece--main .ui-win__sub { font-family: var(--font-mono); font-size: 12px; }
+.mo-sel { margin: 16px 16px 0; padding-top: 16px; border-top: 1px solid var(--u-line); width: auto; }
+.mo-sel .ui-title { font-size: 14px; }
+.mo-sel__ok { display: flex; align-items: center; gap: 6px; margin-top: -4px; font-size: 12px; color: #1e6b42; }
+.mo-sel__ok::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+@media (max-width: 1023px) { .hero__art > .ly-piece--note { left: var(--s-4); bottom: var(--s-4); width: 270px; } }
+
+/* the tour popover as a visitor sees it (the runtime's own look: white, a hairline, the theme colour) */
+.mo-pop, .mo-keys {
+  background: #fff; color: var(--p-ink); border-radius: 12px; padding: 16px 18px;
+  font: 400 14px/1.45 var(--font-text); text-align: left;
+  box-shadow: 0 0 0 1px rgb(13 42 28 / .12), 0 18px 44px -20px rgb(13 42 28 / .45);
+}
+.mo-pop p, .mo-keys p { margin: 6px 0 12px; color: #3f4a44; font-size: 13px; }
+.mo-pop__head { display: flex; align-items: start; justify-content: space-between; gap: 12px; }
+.mo-pop__head b { font-weight: 500; font-size: 15px; line-height: 1.3; }
+.mo-pop__x { color: #6a756f; font-size: 16px; line-height: 1; }
+.mo-pop__foot { display: flex; align-items: center; gap: 8px; padding-top: 12px; border-top: 1px solid rgb(13 42 28 / .1); font-size: 13px; color: #5f6b64; }
+.mo-pop__foot > span:first-child { margin-right: auto; }
+.mo-pop__btn { display: inline-flex; align-items: center; height: 32px; padding: 0 14px; border-radius: 8px; background: var(--p-ink); color: #f7f7f7; font-weight: 500; }
+.mo-pop__btn.is-focus { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--p-accent); }
+.mo-keys { width: 340px; }
+.mo-keys__row { display: flex; align-items: center; gap: 6px; margin-top: 14px; }
+.mo-keys__row .ui-meta { margin-left: 4px; }
+
+/* ---------- #builder: the app-frame recipe (sections-library.md), the live preview in the open pane ---------- */
+.app.ui { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); margin-top: var(--s-7); background: var(--u-bg); border: 1px solid var(--u-border); border-radius: var(--u-r); box-shadow: var(--u-shadow); overflow: hidden; }
+/* the window is the frame (the checks count it as the section's visual): no frame padding or spacer */
+.app.ui.frame { padding: 0; align-items: stretch; justify-content: stretch; isolation: auto; }
+.app.ui.frame::before { display: none; }
+.app > .app__pane { position: relative; min-width: 0; min-height: 0; overflow: hidden; }
+.app > .app__pane + .app__pane { border-left: 1px solid var(--u-line); }
+.app > .app__pane > .ui-panel { width: 100%; border: 0; border-radius: 0; box-shadow: none; }
+.app > .app__pane--list::after { content: ""; position: absolute; inset: auto 0 0 0; height: 64px; background: linear-gradient(transparent, var(--u-bg)); pointer-events: none; }
+.app .ui-win__row.is-open { background: color-mix(in oklab, var(--p-accent) 14%, #fff); }
+.preview-frame { position: absolute; inset: 0; background: #f7f7f7; }
+.preview-frame__poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left top; }
+.preview-frame iframe { position: relative; display: block; width: 100%; height: 100%; border: 0; }
+@media (min-width: 1024px) and (max-width: 1279px) { .app.ui { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); } }
+@media (max-width: 1023px) {
+  .app.ui { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+  .app > .app__pane--list { max-height: 252px; }
+  .app > .app__pane--list::after { display: none; }
+  .app .ui-win__side { display: none; }
+  .app .ui-win__body { grid-template-columns: minmax(0, 1fr); }
+  .app .ui-win__row:nth-child(n + 5) { display: none; }
+  .app > .app__pane + .app__pane { border-left: 0; border-top: 1px solid var(--u-line); }
+}
+@media (max-width: 639px) {
+  .app.ui { grid-template-rows: minmax(0, 1fr); }
+  .app > .app__pane--list { display: none; }
+  .app > .app__pane + .app__pane { border-top: 0; }
+}
+
+/* ---------- #how: the three drawn screens inside the pinned chapters ---------- */
+.mo-pick, .mo-form:not(.mo-sel) { width: min(100%, 440px); padding: 18px; }
+.mo-pick, .mo-form { font: 400 13px/1.4 var(--font-text); color: var(--u-ink); }
+.mo-pick__bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--u-line); }
+.mo-pick__bar b { font-weight: 500; font-size: 16px; }
+.mo-pick__target { padding: 4px; border-radius: 10px; outline: 2px dashed var(--p-accent); outline-offset: 0; background: color-mix(in oklab, var(--p-accent) 18%, transparent); }
+.mo-pick__rows { display: grid; gap: 2px; padding: 10px 0; }
+.mo-pick__rows span { display: flex; align-items: center; gap: 10px; height: 34px; color: var(--u-text-2); }
+.mo-pick__rows i { width: 22px; height: 22px; border-radius: 6px; background: var(--u-fill-2); }
+.mo-pick__tip { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; border-radius: 10px; background: var(--p-ink); color: #f7f7f7; }
+.mo-pick__tip code { color: #f7f7f7; }
+.mo-pick__tip .ui-chip { background: var(--p-accent); color: var(--p-ink); }
+.mo-form { display: grid; gap: 12px; }
+.mo-form label { display: grid; gap: 6px; font-size: 13px; font-weight: 500; color: var(--u-text-2); }
+.mo-form__field { display: block; min-height: 36px; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--u-border); background: var(--u-bg); color: var(--u-ink); font-weight: 400; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.mo-form__field--area { min-height: 64px; white-space: normal; }
+.mo-form__row { display: grid; grid-template-columns: 1fr 1.6fr; gap: 10px; }
+
+/* ---------- #runtime: one panel height for the 2x2, the missing-target dialog ---------- */
+#runtime .panel { --p-h: 336px; }
+@media (min-width: 1024px) and (max-width: 1279px) { #runtime .panel { --p-h: 240px; } }
+.mo-miss { padding: 16px 18px; font: 400 13px/1.45 var(--font-text); color: var(--u-ink); }
+.mo-miss__head b { font-weight: 500; font-size: 15px; }
+.mo-miss p { margin: 6px 0 12px; color: var(--u-text-2); }
+.mo-miss code { overflow-wrap: anywhere; }
+.mo-miss__foot { display: flex; align-items: center; gap: 8px; padding-top: 12px; border-top: 1px solid var(--u-line); color: var(--u-muted); }
+.mo-miss__foot > span:first-child { margin-right: auto; }
+@media (max-width: 639px) { #runtime .panel { --p-h: 168px; } #runtime .card > p { margin-bottom: 0; } }
+/* 640 to 1023: each screen's card row runs to that screen's foot, as the kit does from 1024 */
+@media (min-width: 640px) and (max-width: 1023px) {
+  #runtime.g2 > .wrap > .grid:last-child, #runtime.g2 > .wrap > .group > .grid:last-child { align-self: stretch; flex: 1 1 auto; min-height: 0; }
+}
+
+/* the case study: one live window across the wrap */
+.app.ui.app--single { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
+
+/* #how still (640 to 1023, where the moment does not pin): each step's screen under its words, wide,
+   so the three screens carry the section's two screens */
+@media (min-width: 640px) and (max-width: 1023px) {
+  #how:not(.is-live) .mo-pc__step { grid-template-columns: minmax(0, 1fr); }
+  #how:not(.is-live) .mo-pc__step h3, #how:not(.is-live) .mo-pc__step p { grid-column: 1; }
+  #how:not(.is-live) .mo-pc__step .mo-pc__visual { grid-column: 1; grid-row: auto; margin-top: var(--s-4); aspect-ratio: 16 / 9; }
+}
+/* a short 1024-1279 window: the six answers take two screens rather than run past one */
+
+/* #questions: what a finished tour leaves behind, as the visitor's own storage panel shows it */
+.mo-store { margin-top: var(--s-6); --ratio: 0px; padding: var(--s-6); justify-content: flex-start; }
+.mo-store__panel { width: min(100%, 460px); padding: 16px 18px; display: grid; gap: 10px; font: 400 13px/1.4 var(--font-text); color: var(--u-ink); }
+.mo-store__row { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 12px; padding: 8px 0; border-top: 1px solid var(--u-line); }
+.mo-store__head { color: var(--u-muted); border-top: 0; padding-bottom: 0; }
+.mo-store__row code { overflow-wrap: anywhere; }
+.mo-store .ui-meta { margin: 0; }
+
+/* #how on a phone: square screens, so the three steps carry their two screens */
+@media (max-width: 639px) {
+  #how:not(.is-live) .mo-pc__visual.mo-pc__visual--lit { aspect-ratio: 1 / 1; }
+}

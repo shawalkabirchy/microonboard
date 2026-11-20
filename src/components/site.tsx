@@ -1,4 +1,4 @@
-import { Waypoints, ArrowUpRight, Code2 } from "lucide-react";
+import { ArrowUpRight, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -8,7 +8,8 @@ export function Brand() {
   return (
     // eslint-disable-next-line @next/next/no-html-link-for-pages -- Native navigation preserves the editor's browser Back/unload protection.
     <a href="/" className="brand" aria-label="MicroOnboard home">
-      <Waypoints aria-hidden="true" />
+      {/* eslint-disable-next-line @next/next/no-img-element -- A static SVG mark; next/image adds nothing here. */}
+      <img src="/icon.svg" alt="" width={24} height={24} />
       <span>MicroOnboard</span>
     </a>
   );
@@ -23,6 +24,9 @@ export function SiteHeader({
 }) {
   return (
     <header className={cn("site-header", wide && "site-header-wide")}>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
       <div className="header-inner">
         <Brand />
         <nav aria-label="Main navigation" className="main-nav">
@@ -68,26 +72,5 @@ export function SiteHeader({
         )}
       </div>
     </header>
-  );
-}
-
-export function SiteFooter() {
-  return (
-    <footer className="site-footer">
-      <Brand />
-      <p>
-        A self-initiated project by{" "}
-        <a href="https://consolelog.studio/" target="_blank" rel="noreferrer">
-          ConsoleLog Studio
-        </a>
-        .
-      </p>
-      <div>
-        <a href={SOURCE} target="_blank" rel="noreferrer">
-          Source code
-        </a>
-        <a href="/case-study/#privacy">Privacy</a>
-      </div>
-    </footer>
   );
 }

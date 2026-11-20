@@ -34,6 +34,7 @@ The build uses Next.js's supported `--webpack` option because the Turbopack Post
 ## What ships
 
 - A landing page, three-column tour builder, interactive Acme project workspace, and case study.
+- The landing page, case study and 404 page use the MIT-licensed [tasteskill](https://github.com/Leonxlnx/taste-skill) 2.5 kit, vendored unedited under `public/assets/` (page CSS in `public/site/marketing.css`). The builder, demo and preview keep Tailwind and shadcn (`src/app/globals.css`). Both use Host Grotesk and JetBrains Mono, self-hosted from `public/fonts/` (SIL OFL).
 - Up to **50 drafts**, each with **1–10 steps**. Titles, plain-text content, stable selectors, ordering, placement, page path, and primary color are editable.
 - IndexedDB saves with atomic revision checks. Failed writes, stale tabs, and invalid imports preserve the last committed workspace.
 - Portable tour JSON, immutable export-version snapshots, and validated workspace backups. Full workspace import replaces rather than merges, after confirmation.

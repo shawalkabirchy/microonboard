@@ -12,6 +12,7 @@ const types = {
   ".png": "image/png",
   ".txt": "text/plain",
   ".woff2": "font/woff2",
+  ".webp": "image/webp",
 };
 createServer(async (request, response) => {
   try {
@@ -40,5 +41,7 @@ createServer(async (request, response) => {
     response.writeHead(404, { "Content-Type": "text/plain" }).end("Not found");
   }
 }).listen(Number(process.env.PORT || 4173), "127.0.0.1", () =>
-  process.stdout.write("Static export available at http://127.0.0.1:4173\n"),
+  process.stdout.write(
+    `Static export available at http://127.0.0.1:${process.env.PORT || 4173}\n`,
+  ),
 );

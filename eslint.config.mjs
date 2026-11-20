@@ -5,5 +5,12 @@ import nextTs from "eslint-config-next/typescript";
 export default defineConfig([
   ...nextVitals,
   ...nextTs,
-  globalIgnores([".next/**", "out/**", "public/embed/**", "test-results/**"]),
+  globalIgnores([
+    ".next/**",
+    "out/**",
+    "public/embed/**",
+    // the vendored tasteskill kit (MIT), copied unedited
+    "public/assets/**",
+    "test-results/**",
+  ]),
 ]);

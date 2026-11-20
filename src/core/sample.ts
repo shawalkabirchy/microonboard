@@ -6,7 +6,7 @@ export const sampleTour: TourConfig = {
   title: "Welcome to Acme",
   version: 1,
   pagePath: "/demo/",
-  theme: { primaryColor: "#7055E8" },
+  theme: { primaryColor: "#0D2A1C" },
   steps: [
     {
       id: "7c06689c-e8db-4e3e-bc68-567bf98fac11",

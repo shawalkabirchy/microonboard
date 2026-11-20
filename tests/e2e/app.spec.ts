@@ -112,15 +112,21 @@ test("landing identity, real app preview, no console errors and working primary 
   await page.goto("/");
   await expect(page).toHaveTitle(/MicroOnboard/);
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "A better first five",
+    "Product tour builder",
   );
   const frame = page.frameLocator("iframe");
   await expect(
     frame.getByRole("heading", { name: "Your projects" }),
   ).toBeVisible();
   await expect(frame.getByRole("dialog")).toBeVisible();
+  // The live preview is the landing page's second section; scrolling never
+  // leaves the frame, so bring the frame itself into view first.
+  await page.locator("iframe").scrollIntoViewIfNeeded();
   await frame.getByRole("button", { name: "Close tour", exact: true }).click();
-  await page.getByRole("link", { name: "Build a tour", exact: true }).click();
+  await page
+    .getByRole("main")
+    .getByRole("link", { name: "Try the builder", exact: true })
+    .click();
   await expect(page).toHaveURL(/\/builder\//);
   await expect(page.getByLabel("Title", { exact: true })).toHaveValue(
     sampleTour.title,
@@ -411,7 +417,10 @@ test("browser Back protects unsaved text with the native unload dialog", async (
   page,
 }) => {
   await page.goto("/");
-  await page.getByRole("link", { name: "Build a tour", exact: true }).click();
+  await page
+    .getByRole("main")
+    .getByRole("link", { name: "Try the builder", exact: true })
+    .click();
   await page
     .getByLabel("Title", { exact: true })
     .fill("Keep this before going back");

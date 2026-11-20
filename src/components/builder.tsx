@@ -10,6 +10,7 @@ import {
   CheckCircle2,
   Circle,
   Trash2,
+  FilePlus2,
   ListOrdered,
   Tag,
   RefreshCw,
@@ -395,9 +396,11 @@ export function Builder() {
       <SiteHeader active="builder" wide />
       <main id="main" className="builder-page">
         <div className="builder-heading">
-          <div>
-            <h1>A little guidance goes a long way.</h1>
-            <p>Create a thoughtful welcome, one step at a time.</p>
+          <div className="builder-title">
+            <h1>Tour builder</h1>
+            <p className="builder-notice" role="status" aria-live="polite">
+              {notice || (!loaded ? "Opening your local workspace…" : "")}
+            </p>
           </div>
           <Button
             size="lg"
@@ -456,9 +459,6 @@ export function Builder() {
             </AlertDescription>
           </Alert>
         ) : null}
-        <p className="builder-notice" role="status" aria-live="polite">
-          {notice || (!loaded ? "Opening your local workspace…" : "")}
-        </p>
         <div className="builder-grid">
           <aside className="tours-rail" aria-label="Your tours">
             <div className="rail-title">
@@ -514,23 +514,26 @@ export function Builder() {
                 Workspace backup
               </Button>
               <Button
-                variant="ghost"
+                variant="outline"
                 disabled={busy || !loaded}
                 onClick={() => createTour(true)}
               >
+                <FilePlus2 data-icon="inline-start" />
                 Load sample tour
               </Button>
-              {editing ? (
-                <Button variant="ghost" disabled={busy} onClick={removeTour}>
-                  <Trash2 data-icon="inline-start" />
-                  Delete tour
-                </Button>
-              ) : null}
             </div>
             <p className="local-note">
               <ShieldCheck aria-hidden="true" />
               Your work stays in this browser. Back it up to keep it safe.
             </p>
+            {editing ? (
+              <div className="rail-danger">
+                <Button variant="ghost" disabled={busy} onClick={removeTour}>
+                  <Trash2 data-icon="inline-start" />
+                  Delete tour
+                </Button>
+              </div>
+            ) : null}
             <input
               ref={file}
               aria-label="Import tour or workspace JSON"

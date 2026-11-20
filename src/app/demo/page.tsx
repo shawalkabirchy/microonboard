@@ -1,3 +1,4 @@
+import "../globals.css";
 import { SiteHeader } from "@/components/site";
 import { Demo } from "@/components/demo";
 export const metadata = { title: "Live demo" };

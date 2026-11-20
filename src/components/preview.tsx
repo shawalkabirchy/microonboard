@@ -20,12 +20,14 @@ export type PreviewHandle = {
 export function Preview({
   config = sampleTour,
   hero = false,
+  bare = false,
   onPick,
   onError,
   ref,
 }: {
   config?: TourConfig;
   hero?: boolean;
+  bare?: boolean;
   onPick?: (selector: string) => void;
   onError?: (message: string) => void;
   ref?: Ref<PreviewHandle>;
@@ -148,6 +150,30 @@ export function Preview({
       requests.clear();
     };
   }, [hero]);
+  const iframe = (
+    <iframe
+      ref={frame}
+      src="/preview/"
+      title="Acme Studio tour preview"
+      onLoad={() => send("hello")}
+    />
+  );
+  // bare: only the live frame, for a window on the marketing pages to hold.
+  if (bare)
+    return (
+      <div className="preview-frame">
+        {/* The still shows while the live preview loads; the frame covers it. */}
+        {/* eslint-disable-next-line @next/next/no-img-element -- A static poster; the export has no image optimiser. */}
+        <img
+          className="preview-frame__poster"
+          src="/site/preview-poster.webp"
+          alt=""
+          width={760}
+          height={560}
+        />
+        {iframe}
+      </div>
+    );
   return (
     <section
       className={hero ? "hero-preview" : "preview-pane"}
@@ -174,13 +200,13 @@ export function Preview({
               Pick element
             </Button>
             <Button
-              variant="ghost"
-              size="icon"
-              aria-label="Stop preview tour"
+              variant="outline"
+              size="sm"
               disabled={!ready}
               onClick={() => send("stop")}
             >
-              <Square />
+              <Square data-icon="inline-start" />
+              Stop<span className="sr-only"> preview tour</span>
             </Button>
             <Button
               size="sm"
@@ -193,14 +219,7 @@ export function Preview({
           </div>
         </div>
       )}
-      <div className="preview-canvas">
-        <iframe
-          ref={frame}
-          src="/preview/"
-          title="Acme Studio tour preview"
-          onLoad={() => send("hello")}
-        />
-      </div>
+      <div className="preview-canvas">{iframe}</div>
       {!hero ? (
         <p className="preview-note">
           <Info aria-hidden="true" />

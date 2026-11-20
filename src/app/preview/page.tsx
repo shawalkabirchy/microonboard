@@ -1,3 +1,4 @@
+import "../globals.css";
 import { PreviewHost } from "@/components/preview-host";
 export const metadata = {
   title: "Workspace preview",

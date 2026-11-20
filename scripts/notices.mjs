@@ -28,6 +28,14 @@ for (const [directory, entry] of Object.entries(lock.packages)) {
     `\n${"=".repeat(72)}\n${packageInfo.name}@${packageInfo.version}\nLicence: ${packageInfo.license || "See package source"}\n${texts.join("\n")}`,
   );
 }
+// Vendored, not installed from npm: the tasteskill kit under public/assets and
+// the self-hosted faces under public/fonts.
+for (const [name, file] of [
+  ["tasteskill 2.5.0 (public/assets)", "public/assets/LICENSE.txt"],
+  ["Host Grotesk (public/fonts)", "public/fonts/OFL-HostGrotesk.txt"],
+  ["JetBrains Mono (public/fonts)", "public/fonts/OFL-JetBrainsMono.txt"],
+])
+  notices.push(`\n${"=".repeat(72)}\n${name}\n${await readFile(file, "utf8")}`);
 const content = notices.join("\n");
 for (const name of [
   "zod@",
@@ -36,6 +44,9 @@ for (const name of [
   "next@",
   "idb@",
   "radix-ui@",
+  "tasteskill",
+  "Host Grotesk",
+  "JetBrains Mono",
 ])
   assert(content.includes(name), `Missing notice for ${name}`);
 await writeFile("public/third-party-notices.txt", content);
